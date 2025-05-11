@@ -25,10 +25,10 @@ The Jeannot app collects the following data:
 
 Data is collected to:
 
-- Provide, maintain, and improve the app
-- Personalize the user experience
-- Analyze app usage and understand user behavior
-- Detect, diagnose, and fix bugs or technical issues
+- Provide, maintain, and improve the app  
+- Personalize the user experience  
+- Analyze app usage and understand user behavior  
+- Detect, diagnose, and fix bugs or technical issues  
 
 ---
 
@@ -56,6 +56,22 @@ Sentry is an error monitoring tool used to report crashes and bugs. Information 
 - Error logs  
 
 [Sentry Privacy Policy](https://sentry.io/privacy/)
+
+#### 🔹 Language Model Providers (e.g., OpenAI)
+
+If you interact with features such as a **chatbot** or any conversational assistant within the app, certain inputs may be transmitted to third-party language model providers (e.g., **OpenAI**) in order to generate responses.
+
+The following data **may be processed**:
+
+- Text content of your messages or questions  
+- Technical metadata (e.g., timestamp, device/platform)  
+- Geolocation or contextual information you provide during the conversation  
+
+These providers **may retain data** to monitor misuse, improve their services, or comply with legal obligations, in accordance with their own privacy policies.
+
+> **Note:** We take steps to minimize the amount of personal information shared in this context. However, **you should avoid submitting sensitive personal data** when interacting with AI features.
+
+[OpenAI Privacy Policy](https://openai.com/privacy)
 
 ---
 
