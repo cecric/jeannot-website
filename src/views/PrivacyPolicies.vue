@@ -155,7 +155,7 @@
       <h2>8. Contact</h2>
       <p><strong>Data Controller:</strong></p>
       <p>Cédric LESEC<br>
-        cedric.lesec+jeannot@gmail.com<br>
+        contact@jeannot.app<br>
         (Coming soon: Jeannot SAS)</p>
     </section>
   </div>

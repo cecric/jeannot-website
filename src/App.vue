@@ -94,8 +94,8 @@ const mobileMenuOpen = ref(false);
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                <a href="mailto:cedric.lesec+jeannot@gmail.com"
-                  class="text-slate-300 hover:text-white text-sm">cedric.lesec+jeannot@gmail.com</a>
+                <a href="mailto:contact@jeannot.app"
+                  class="text-slate-300 hover:text-white text-sm">contact@jeannot.app</a>
               </li>
               <!-- <li class="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"

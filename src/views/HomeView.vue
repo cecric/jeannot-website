@@ -23,7 +23,7 @@
               <path d="m12 5 7 7-7 7" />
             </svg>
           </a>
-          <a href="#learn-more"
+          <a href="#features"
             class="border border-[#7c8c64] text-[#7c8c64] font-medium py-3 px-6 rounded-md text-center">
             Learn More
           </a>
