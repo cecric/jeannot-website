@@ -77,7 +77,8 @@ const mobileMenuOpen = ref(false);
           <div>
             <h3 class="text-lg font-semibold mb-4">Legal</h3>
             <ul class="space-y-2">
-              <li><a href="/privacy-policies" class="text-slate-300 hover:text-white text-sm">Privacy Policy</a></li>
+              <li><a href="privacy-policies.html" class="text-slate-300 hover:text-white text-sm">Privacy Policies</a>
+              </li>
               <!-- <li><a href="#" class="text-slate-300 hover:text-white text-sm">Terms of Service</a></li> -->
               <!-- <li><a href="#" class="text-slate-300 hover:text-white text-sm">Cookie Policy</a></li> -->
             </ul>
