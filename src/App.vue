@@ -123,7 +123,7 @@ const mobileMenuOpen = ref(false);
 
         <div class="border-t border-slate-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p class="text-sm text-slate-400">
-            &copy; {{ new Date().getFullYear() }} Jeannot. Cedric LESEC All rights reserved.
+            &copy; {{ new Date().getFullYear() }} Jeannot. Gaiadet SAS All rights reserved.
           </p>
           <!-- <div class="flex space-x-4 mt-4 md:mt-0">
             <a href="#" class="text-slate-400 hover:text-white">
