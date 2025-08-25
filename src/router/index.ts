@@ -22,6 +22,16 @@ const router = createRouter({
         name: 'privacy-policies',
         component: () => import('../views/PrivacyPolicies.vue'),
       },
+      {
+        path: '/support',
+        name: 'support',
+        component: () => import('../views/SupportView.vue'),
+      },
+      {
+        path: '/fr/support',
+        name: 'fr-support',
+        component: () => import('../views/SupportFRView.vue'),
+      },
   ],
 })
 

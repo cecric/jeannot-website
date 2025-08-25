@@ -13,10 +13,11 @@ const mobileMenuOpen = ref(false);
         <span class="ml-3 text-2xl font-semibold text-slate-700">Jeannot</span>
       </div>
       <div class="hidden md:flex space-x-8">
-        <a href="#features" class="text-slate-700 hover:text-olive-600">Features</a>
+        <a href="/#features" class="text-slate-700 hover:text-olive-600">Features</a>
         <!-- <a href="#how-it-works" class="text-slate-700 hover:text-olive-600">How It Works</a> -->
         <!-- <a href="#testimonials" class="text-slate-700 hover:text-olive-600">Testimonials</a> -->
-        <a href="#download" class="text-slate-700 hover:text-olive-600">Download</a>
+        <a href="/#download" class="text-slate-700 hover:text-olive-600">Download</a>
+        <a href="/support" class="text-slate-700 hover:text-olive-600">Support</a>
       </div>
       <div class="md:hidden">
         <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-slate-700">
@@ -70,6 +71,7 @@ const mobileMenuOpen = ref(false);
               <!-- <li><a href="#how-it-works" class="text-slate-300 hover:text-white text-sm">How It Works</a></li>
               <li><a href="#testimonials" class="text-slate-300 hover:text-white text-sm">Testimonials</a></li> -->
               <li><a href="/#download" class="text-slate-300 hover:text-white text-sm">Download</a></li>
+              <li><a href="/support" class="text-slate-300 hover:text-white text-sm">Support</a></li>
             </ul>
           </div>
 
@@ -79,6 +81,8 @@ const mobileMenuOpen = ref(false);
             <ul class="space-y-2">
               <li><a href="privacy-policies.html" class="text-slate-300 hover:text-white text-sm">Privacy Policies</a>
               </li>
+              <li><a href="/support" class="text-slate-300 hover:text-white text-sm">Support</a></li>
+              <li><a href="/fr/support" class="text-slate-300 hover:text-white text-sm">Support (fr)</a></li>
               <!-- <li><a href="#" class="text-slate-300 hover:text-white text-sm">Terms of Service</a></li> -->
               <!-- <li><a href="#" class="text-slate-300 hover:text-white text-sm">Cookie Policy</a></li> -->
             </ul>
