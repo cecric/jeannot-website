@@ -370,7 +370,7 @@
         </div>
 
         <div class="flex flex-col sm:flex-row justify-center gap-6 max-w-md mx-auto">
-          <!-- <a href="#"
+          <a href="https://apps.apple.com/us/app/jeannot/id6749574145" target="_blank"
             class="bg-white text-[#7c8c64] hover:bg-opacity-90 py-3 px-6 rounded-md text-center flex items-center justify-center">
             <svg class="mr-2" width="20px" height="20px" viewBox="-1.5 0 20 20" version="1.1"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -387,7 +387,7 @@
               </g>
             </svg>
             App Store
-          </a> -->
+          </a>
           <a href="https://play.google.com/store/apps/details?id=com.jeannot.app" target="_blank"
             class="bg-white text-[#7c8c64] hover:bg-opacity-90 py-3 px-6 rounded-md text-center flex items-center justify-center">
             <svg fill="#000000" class="mr-2" version="1.1" xmlns="http://www.w3.org/2000/svg"
