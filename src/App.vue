@@ -2,6 +2,10 @@
 import { ref } from 'vue';
 
 const mobileMenuOpen = ref(false);
+
+const toUppercase = (locale: string) => {
+  return locale.toUpperCase();
+}
 </script>
 
 <template>
@@ -13,11 +17,23 @@ const mobileMenuOpen = ref(false);
         <span class="ml-3 text-2xl font-semibold text-slate-700">Jeannot</span>
       </div>
       <div class="hidden md:flex space-x-8">
-        <a href="/#features" class="text-slate-700 hover:text-olive-600">Features</a>
+        <a href="/#features" class="text-slate-700 hover:text-olive-600">{{ $t('nav.features') }}</a>
         <!-- <a href="#how-it-works" class="text-slate-700 hover:text-olive-600">How It Works</a> -->
         <!-- <a href="#testimonials" class="text-slate-700 hover:text-olive-600">Testimonials</a> -->
-        <a href="/#download" class="text-slate-700 hover:text-olive-600">Download</a>
-        <a href="/support" class="text-slate-700 hover:text-olive-600">Support</a>
+        <a href="/#download" class="text-slate-700 hover:text-olive-600">{{ $t('nav.download') }}</a>
+        <a href="/support" class="text-slate-700 hover:text-olive-600" v-if="$i18n.locale === 'en'">{{ $t('nav.support')
+        }}</a>
+        <a href="/fr/support" class="text-slate-700 hover:text-olive-600" v-if="$i18n.locale === 'fr'">{{
+          $t('nav.support')
+          }} (fr)</a>
+
+        <div class="locale-changer">
+          <select v-model="$i18n.locale">
+            <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{
+              toUppercase(locale) }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="md:hidden">
         <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-slate-700">
@@ -35,14 +51,14 @@ const mobileMenuOpen = ref(false);
     <!-- Mobile Menu -->
     <div v-if="mobileMenuOpen" class="md:hidden bg-[#f8f5ed] px-4 py-2 shadow-lg absolute w-full z-10">
       <div class="flex flex-col space-y-3 pb-3">
-        <a href="#features" class="text-slate-700 hover:text-olive-600 py-2"
-          @click="mobileMenuOpen = false">Features</a>
-        <a href="#how-it-works" class="text-slate-700 hover:text-olive-600 py-2" @click="mobileMenuOpen = false">How It
-          Works</a>
+        <a href="#features" class="text-slate-700 hover:text-olive-600 py-2" @click="mobileMenuOpen = false">{{
+          $t('nav.features') }}</a>
+        <a href="#how-it-works" class="text-slate-700 hover:text-olive-600 py-2" @click="mobileMenuOpen = false">{{
+          $t('nav.howItWorks') }}</a>
         <!-- <a href="#testimonials" class="text-slate-700 hover:text-olive-600 py-2"
           @click="mobileMenuOpen = false">Testimonials</a> -->
-        <a href="#download" class="text-slate-700 hover:text-olive-600 py-2"
-          @click="mobileMenuOpen = false">Download</a>
+        <a href="#download" class="text-slate-700 hover:text-olive-600 py-2" @click="mobileMenuOpen = false">{{
+          $t('nav.download') }}</a>
       </div>
     </div>
 
@@ -59,30 +75,36 @@ const mobileMenuOpen = ref(false);
               <span class="ml-3 text-xl font-semibold">Jeannot</span>
             </div>
             <p class="text-slate-300 text-sm">
-              Gardening in harmony with nature and lunar cycles.
+              {{ $t('footer.description') }}
             </p>
           </div>
 
           <!-- Quick Links -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 class="text-lg font-semibold mb-4">{{ $t('footer.quickLinks') }}</h3>
             <ul class="space-y-2">
-              <li><a href="/#features" class="text-slate-300 hover:text-white text-sm">Features</a></li>
+              <li><a href="/#features" class="text-slate-300 hover:text-white text-sm">{{ $t('footer.features') }}</a>
+              </li>
               <!-- <li><a href="#how-it-works" class="text-slate-300 hover:text-white text-sm">How It Works</a></li>
               <li><a href="#testimonials" class="text-slate-300 hover:text-white text-sm">Testimonials</a></li> -->
-              <li><a href="/#download" class="text-slate-300 hover:text-white text-sm">Download</a></li>
-              <li><a href="/support" class="text-slate-300 hover:text-white text-sm">Support</a></li>
+              <li><a href="/#download" class="text-slate-300 hover:text-white text-sm">{{ $t('footer.download') }}</a>
+              </li>
+              <li><a href="/support" class="text-slate-300 hover:text-white text-sm">{{ $t('footer.support') }}</a></li>
             </ul>
           </div>
 
           <!-- Legal -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Legal</h3>
+            <h3 class="text-lg font-semibold mb-4">{{ $t('footer.legal') }}</h3>
             <ul class="space-y-2">
-              <li><a href="privacy-policies.html" class="text-slate-300 hover:text-white text-sm">Privacy Policies</a>
+              <li><a href="privacy-policies.html" class="text-slate-300 hover:text-white text-sm">{{
+                $t('footer.privacyPolicies') }}</a>
               </li>
-              <li><a href="/support" class="text-slate-300 hover:text-white text-sm">Support</a></li>
-              <li><a href="/fr/support" class="text-slate-300 hover:text-white text-sm">Support (fr)</a></li>
+              <li><a href="/support" class="text-slate-300 hover:text-white text-sm" v-if="$i18n.locale === 'en'">{{
+                $t('footer.support') }}</a></li>
+              <li><a href="/fr/support" class="text-slate-300 hover:text-white text-sm" v-if="$i18n.locale === 'fr'">{{
+                $t('footer.support') }}
+                  (fr)</a></li>
               <!-- <li><a href="#" class="text-slate-300 hover:text-white text-sm">Terms of Service</a></li> -->
               <!-- <li><a href="#" class="text-slate-300 hover:text-white text-sm">Cookie Policy</a></li> -->
             </ul>
@@ -90,7 +112,7 @@ const mobileMenuOpen = ref(false);
 
           <!-- Contact -->
           <div>
-            <h3 class="text-lg font-semibold mb-4">Contact</h3>
+            <h3 class="text-lg font-semibold mb-4">{{ $t('footer.contact') }}</h3>
             <ul class="space-y-2">
               <li class="flex items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -127,7 +149,7 @@ const mobileMenuOpen = ref(false);
 
         <div class="border-t border-slate-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p class="text-sm text-slate-400">
-            &copy; {{ new Date().getFullYear() }} Jeannot. Gaiadet SAS All rights reserved.
+            &copy; {{ new Date().getFullYear() }} Jeannot. Gaiadet SAS {{ $t('footer.allRightsReserved') }}.
           </p>
           <!-- <div class="flex space-x-4 mt-4 md:mt-0">
             <a href="#" class="text-slate-400 hover:text-white">

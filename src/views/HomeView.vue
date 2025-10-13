@@ -6,16 +6,15 @@
     <section class="mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center w-full">
       <div class="md:w-1/2 mb-10 md:mb-0">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight mb-6">
-          Garden in Harmony with Nature
+          {{ $t('home.title') }}
         </h1>
         <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-          Jeannot guides you to cultivate in harmony with the moon cycles, helping you grow healthier plants and harvest
-          better yields.
+          {{ $t('home.description') }}
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="#download"
             class="bg-[#7c8c64] hover:bg-[#6a7854] text-white font-medium py-3 px-6 rounded-md text-center flex items-center justify-center">
-            Download Now
+            {{ $t('home.download') }}
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-arrow-right ml-2">
@@ -25,7 +24,7 @@
           </a>
           <a href="#features"
             class="border border-[#7c8c64] text-[#7c8c64] font-medium py-3 px-6 rounded-md text-center">
-            Learn More
+            {{ $t('home.learnMore') }}
           </a>
         </div>
       </div>
@@ -40,9 +39,9 @@
     <section id="features" class="bg-white py-16 md:py-24">
       <div class=" mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Grow Better with Jeannot</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">{{ $t('home.features.title') }}</h2>
           <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-            Discover how Jeannot helps you garden in harmony with nature's cycles
+            {{ $t('home.features.description') }}
           </p>
         </div>
 
@@ -56,10 +55,9 @@
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Moon Phase Gardening</h3>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[0].title') }}</h3>
             <p class="text-slate-600">
-              Get personalized gardening advice based on the current moon phase to optimize your planting, pruning, and
-              harvesting.
+              {{ $t('home.features.list[0].description') }}
             </p>
           </div>
 
@@ -75,10 +73,9 @@
                 <path d="M3 10h18" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Daily Garden Tasks</h3>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[1].title') }}</h3>
             <p class="text-slate-600">
-              Receive daily recommendations for garden activities based on the season, weather, and celestial
-              influences.
+              {{ $t('home.features.list[1].description') }}
             </p>
           </div>
 
@@ -109,9 +106,9 @@
                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Ask Jeannot</h3>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[2].title') }}</h3>
             <p class="text-slate-600">
-              Get answers to your gardening questions with our intelligent assistant that provides personalized advice.
+              {{ $t('home.features.list[2].description') }}
             </p>
           </div>
 
@@ -203,32 +200,32 @@
     <section class="bg-white py-16 md:py-24">
       <div class=" mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">See Jeannot in Action</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">{{ $t('home.seeJeannotInAction.title') }}</h2>
           <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-            Explore the intuitive interface that makes gardening with lunar cycles simple
+            {{ $t('home.seeJeannotInAction.description') }}
           </p>
         </div>
 
         <div class="flex overflow-x-auto pb-8 gap-6 snap-x">
           <div class="min-w-[280px] md:min-w-[320px] snap-center">
-            <img src="/assets/jeannot-screen-1.jpg" alt="Welcome Screen" class="rounded-xl shadow-lg" />
+            <img :src="`/assets/${$i18n.locale}/preview-0.png`" alt="Welcome Screen" class="rounded-xl shadow-lg" />
             <!-- <p class="mt-4 text-center text-slate-700 font-medium">Jeannot</p> -->
           </div>
           <div class="min-w-[280px] md:min-w-[320px] snap-center">
-            <img src="/assets/jeannot-screen-2.jpg" alt="Daily View" class="rounded-xl shadow-lg" />
+            <img :src="`/assets/${$i18n.locale}/preview-1.png`" alt="Daily View" class="rounded-xl shadow-lg" />
             <!-- <p class="mt-4 text-center text-slate-700 font-medium">Daily Garden Tasks</p> -->
           </div>
           <div class="min-w-[280px] md:min-w-[320px] snap-center">
-            <img src="/assets/jeannot-screen-3.jpg" alt="Moon Phase" class="rounded-xl shadow-lg" />
-            <p class="mt-4 text-center text-slate-700 font-medium">Talk with Jeannot</p>
+            <img :src="`/assets/${$i18n.locale}/preview-2.png`" alt="Moon Phase" class="rounded-xl shadow-lg" />
           </div>
           <div class="min-w-[280px] md:min-w-[320px] snap-center">
-            <img src="/assets/jeannot-screen-4.jpg" alt="Plant Guide" class="rounded-xl shadow-lg" />
-            <p class="mt-4 text-center text-slate-700 font-medium">Daily garden info</p>
+            <img :src="`/assets/${$i18n.locale}/preview-3.png`" alt="Plant Guide" class="rounded-xl shadow-lg" />
           </div>
           <div class="min-w-[280px] md:min-w-[320px] snap-center">
-            <img src="/assets/jeannot-screen-5.jpg" alt="Plant Guide" class="rounded-xl shadow-lg" />
-            <p class="mt-4 text-center text-slate-700 font-medium">Schedule garden tasks</p>
+            <img :src="`/assets/${$i18n.locale}/preview-4.png`" alt="Plant Guide" class="rounded-xl shadow-lg" />
+          </div>
+          <div class="min-w-[280px] md:min-w-[320px] snap-center">
+            <img :src="`/assets/${$i18n.locale}/preview-5.png`" alt="Plant Guide" class="rounded-xl shadow-lg" />
           </div>
         </div>
       </div>
@@ -363,9 +360,9 @@
     <section id="download" class="py-16 md:py-24 bg-[#7c8c64] text-white w-full">
       <div class=" mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Download Jeannot Today</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">{{ $t('home.downloadSection.title') }}</h2>
           <p class="text-xl max-w-3xl mx-auto opacity-90">
-            Start gardening in harmony with nature and see the difference in your garden
+            {{ $t('home.downloadSection.description') }}
           </p>
         </div>
 
@@ -386,7 +383,7 @@
                 </g>
               </g>
             </svg>
-            App Store
+            {{ $t('home.downloadSection.store.ios') }}
           </a>
           <a href="https://play.google.com/store/apps/details?id=com.jeannot.app" target="_blank"
             class="bg-white text-[#7c8c64] hover:bg-opacity-90 py-3 px-6 rounded-md text-center flex items-center justify-center">
@@ -414,7 +411,7 @@
               </g>
 
             </svg>
-            Google Play
+            {{ $t('home.downloadSection.store.android') }}
           </a>
         </div>
       </div>
