@@ -26,8 +26,8 @@ import type { i18nMessages } from "./lang";
       cookiePolicy: 'Politique de cookies',
     },
     home: {
-      title: 'Jardinage en harmonie avec la nature',
-      description: 'Jeannot vous guide à cultiver en harmonie avec les cycles lunaires, vous aider à pousser des plantes plus saines et à récolter des rendements meilleurs.',
+      title: 'Plantez et récoltez avec une précision lunaire 🌙',
+      description: 'Jeannot vous dit ce qu\'il faut faire dans votre jardin aujourd\'hui en se basant sur la lune, la météo et les principes biodynamiques.',
       download: 'Télécharger maintenant',
       learnMore: 'En savoir plus',
       features: {
@@ -50,6 +50,14 @@ import type { i18nMessages } from "./lang";
             title: 'Reconnaissance de plantes et maladies',
             description: 'Identifiez les plantes et les maladies avec notre technologie d\'image avancée pour obtenir des conseils personnalisés.',
           },
+          {
+            title: 'Planification des tâches du jardin',
+            description: 'Planifiez vos tâches de jardin pour la semaine en fonction de la phase lunaire, la météo et les principes biodynamiques.',
+          },
+          {
+            title: 'Prévisions météo',
+            description: 'Obtenez des prévisions météo et des alertes sur votre jardin.',
+          },
         ]
       },
       seeJeannotInAction: {
@@ -71,8 +79,8 @@ import type { i18nMessages } from "./lang";
         title: 'Téléchargez Jeannot aujourd\'hui',
         description: 'Commencez à jardiner en harmonie avec la nature et voyez la différence dans votre jardin',
         store: {
-          ios: 'App Store',
-          android: 'Google Play',
+          ios: 'Télécharger sur App Store',
+          android: 'Télécharger sur Google Play',
         }
       }
     }

@@ -25,8 +25,8 @@ export const en: i18nMessages = {
     cookiePolicy: 'Cookie Policy',
   },
   home: {
-    title: 'Garden in Harmony with Nature',
-    description: 'Jeannot guides you to cultivate in harmony with the moon cycles, helping you grow healthier plants and harvest better yields.',
+    title: 'Plant and Harvest with Lunar Precision 🌙',
+    description: 'Jeannot tells you what to do in your garden today — based on moon phases, weather, and biodynamics principles.',
     download: 'Download Now',
     learnMore: 'Learn More',
     features: {
@@ -49,6 +49,14 @@ export const en: i18nMessages = {
           title: 'Plant and disease recognition',
           description: 'Identify plants and diseases with our advanced image recognition technology to get personalized advice.',
         },
+        {
+          title: 'Planning garden tasks',
+          description: 'Plan your garden tasks for the week based on the moon phase, weather, and biodynamics principles.',
+        },
+        {
+          title: 'Weather forecasts',
+          description: 'Get weather forecasts and alerts on your garden location.',
+        }
       ]
     },
     seeJeannotInAction: {
@@ -70,8 +78,8 @@ export const en: i18nMessages = {
       title: 'Download Jeannot Today',
       description: 'Start gardening in harmony with nature and see the difference in your garden',
       store: {
-        ios: 'App Store',
-        android: 'Google Play',
+        ios: 'Download on App Store',
+        android: 'Download on Google Play',
       }
     }
   }

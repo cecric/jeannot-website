@@ -12,16 +12,42 @@
           {{ $t('home.description') }}
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#download"
-            class="bg-[#7c8c64] hover:bg-[#6a7854] text-white font-medium py-3 px-6 rounded-md text-center flex items-center justify-center">
-            {{ $t('home.download') }}
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="lucide lucide-arrow-right ml-2">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
+          <a target="_blank" href="https://apps.apple.com/us/app/jeannot/id6749574145"
+            class="bg-black hover:bg-gray-900 text-white font-medium py-3 px-6 rounded-md text-center flex items-center justify-center transition-colors duration-200">
+            {{ $t('home.downloadSection.store.ios') }}
+            <svg viewBox="0 0 24 24" style="height: 24px; width: 24px;" class="ml-2">
+              <path fill="currentColor"
+                d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z">
+              </path>
             </svg>
           </a>
+          <a target="_blank" href="https://play.google.com/store/apps/details?id=com.jeannot.app"
+            class="bg-[#3ddc84] hover:bg-[#25c06d] text-white font-medium py-3 px-6 rounded-md text-center flex items-center justify-center transition-colors duration-200">
+            {{ $t('home.downloadSection.store.android') }}
+            <svg viewBox="0 0 24 24" style="height: 24px; width: 24px;" class="ml-2">
+              <path fill="currentColor"
+                d="M16.61 15.15C16.15 15.15 15.77 14.78 15.77 14.32S16.15 13.5 16.61 13.5H16.61C17.07 13.5 17.45 13.86 17.45 14.32C17.45 14.78 17.07 15.15 16.61 15.15M7.41 15.15C6.95 15.15 6.57 14.78 6.57 14.32C6.57 13.86 6.95 13.5 7.41 13.5H7.41C7.87 13.5 8.24 13.86 8.24 14.32C8.24 14.78 7.87 15.15 7.41 15.15M16.91 10.14L18.58 7.26C18.67 7.09 18.61 6.88 18.45 6.79C18.28 6.69 18.07 6.75 18 6.92L16.29 9.83C14.95 9.22 13.5 8.9 12 8.91C10.47 8.91 9 9.24 7.73 9.82L6.04 6.91C5.95 6.74 5.74 6.68 5.57 6.78C5.4 6.87 5.35 7.08 5.44 7.25L7.1 10.13C4.25 11.69 2.29 14.58 2 18H22C21.72 14.59 19.77 11.7 16.91 10.14H16.91Z">
+              </path>
+            </svg>
+          </a>
+          <!-- <a target="_blank" href="https://apps.apple.com/us/app/jeannot/id6749574145"
+            class="bg-[#7c8c64] hover:bg-[#6a7854] text-white font-medium py-3 px-6 rounded-md text-center flex items-center justify-center">
+            {{ $t('home.downloadSection.store.ios') }}
+            <svg viewBox="0 0 24 24" style="height: 24px; width: 24px;" class="ml-2">
+              <path fill="currentColor"
+                d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z">
+              </path>
+            </svg>
+          </a>
+          <a target="_blank" href="https://play.google.com/store/apps/details?id=com.jeannot.app"
+            class="bg-[#7c8c64] hover:bg-[#6a7854] text-white font-medium py-3 px-6 rounded-md text-center flex items-center justify-center">
+            {{ $t('home.downloadSection.store.android') }}
+            <svg viewBox="0 0 24 24" style="height: 24px; width: 24px;" class="ml-2">
+              <path fill="currentColor"
+                d="M16.61 15.15C16.15 15.15 15.77 14.78 15.77 14.32S16.15 13.5 16.61 13.5H16.61C17.07 13.5 17.45 13.86 17.45 14.32C17.45 14.78 17.07 15.15 16.61 15.15M7.41 15.15C6.95 15.15 6.57 14.78 6.57 14.32C6.57 13.86 6.95 13.5 7.41 13.5H7.41C7.87 13.5 8.24 13.86 8.24 14.32C8.24 14.78 7.87 15.15 7.41 15.15M16.91 10.14L18.58 7.26C18.67 7.09 18.61 6.88 18.45 6.79C18.28 6.69 18.07 6.75 18 6.92L16.29 9.83C14.95 9.22 13.5 8.9 12 8.91C10.47 8.91 9 9.24 7.73 9.82L6.04 6.91C5.95 6.74 5.74 6.68 5.57 6.78C5.4 6.87 5.35 7.08 5.44 7.25L7.1 10.13C4.25 11.69 2.29 14.58 2 18H22C21.72 14.59 19.77 11.7 16.91 10.14H16.91Z">
+              </path>
+            </svg>
+          </a> -->
           <a href="#features"
             class="border border-[#7c8c64] text-[#7c8c64] font-medium py-3 px-6 rounded-md text-center">
             {{ $t('home.learnMore') }}
@@ -80,7 +106,7 @@
           </div>
 
           <!-- Feature 3 -->
-          <!-- <div class="bg-[#f8f5ed] p-6 rounded-lg">
+          <div class="bg-[#f8f5ed] p-6 rounded-lg">
             <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -91,11 +117,11 @@
                 <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Plant Encyclopedia</h3>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[2].title') }}</h3>
             <p class="text-slate-600">
-              Access a comprehensive database of plants with detailed growing instructions and optimal planting times.
+              {{ $t('home.features.list[2].description') }}
             </p>
-          </div> -->
+          </div>
 
           <!-- Feature 4 -->
           <div class="bg-[#f8f5ed] p-6 rounded-lg">
@@ -106,14 +132,14 @@
                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[2].title') }}</h3>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[3].title') }}</h3>
             <p class="text-slate-600">
-              {{ $t('home.features.list[2].description') }}
+              {{ $t('home.features.list[3].description') }}
             </p>
           </div>
 
           <!-- Feature 5 -->
-          <!-- <div class="bg-[#f8f5ed] p-6 rounded-lg">
+          <div class="bg-[#f8f5ed] p-6 rounded-lg">
             <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -122,32 +148,26 @@
                 <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Gardening Reminders</h3>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[4].title') }}</h3>
             <p class="text-slate-600">
-              Never miss the optimal time for planting or harvesting with customized notifications and reminders.
+              {{ $t('home.features.list[4].description') }}
             </p>
-          </div> -->
+          </div>
 
           <!-- Feature 6 -->
-          <!-- <div class="bg-[#f8f5ed] p-6 rounded-lg">
+          <div class="bg-[#f8f5ed] p-6 rounded-lg">
             <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-clipboard-list">
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                <path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z" />
-                <path d="M12 11h4" />
-                <path d="M12 16h4" />
-                <path d="M8 11h.01" />
-                <path d="M8 16h.01" />
+              <svg viewBox="0 0 24 24" height="24" width="24">
+                <path fill="white"
+                  d="M12.75,4.47C15.1,5.5 16.35,8.03 15.92,10.46C17.19,11.56 18,13.19 18,15V15.17C18.31,15.06 18.65,15 19,15A3,3 0 0,1 22,18A3,3 0 0,1 19,21H17C17,21 16,21 16,20C16,19 17,19 17,19H19A1,1 0 0,0 20,18A1,1 0 0,0 19,17H16V15A4,4 0 0,0 12,11A4,4 0 0,0 8,15H6A2,2 0 0,0 4,17A2,2 0 0,0 6,19H7C7,19 8,19 8,20C8,21 7,21 7,21H6A4,4 0 0,1 2,17A4,4 0 0,1 6,13H6.27C5,11.45 4.6,9.24 5.5,7.25C6.72,4.5 9.97,3.24 12.75,4.47M11.93,6.3C10.16,5.5 8.09,6.31 7.31,8.07C6.85,9.09 6.93,10.22 7.41,11.13C8.5,9.83 10.16,9 12,9C12.7,9 13.38,9.12 14,9.34C13.94,8.06 13.18,6.86 11.93,6.3M13.55,2.63C13,2.4 12.45,2.23 11.88,2.12L14.37,0.82L15.27,3.71C14.76,3.29 14.19,2.93 13.55,2.63M6.09,3.44C5.6,3.79 5.17,4.19 4.8,4.63L4.91,1.82L7.87,2.5C7.25,2.71 6.65,3.03 6.09,3.44M18,8.71C17.91,8.12 17.78,7.55 17.59,7L19.97,8.5L17.92,10.73C18.03,10.08 18.05,9.4 18,8.71M3.04,10.3C3.11,10.9 3.25,11.47 3.43,12L1.06,10.5L3.1,8.28C3,8.93 2.97,9.61 3.04,10.3M12,18.91C12.59,19.82 13,20.63 13,21A1,1 0 0,1 12,22A1,1 0 0,1 11,21C11,20.63 11.41,19.82 12,18.91M12,15.62C12,15.62 9,19 9,21A3,3 0 0,0 12,24A3,3 0 0,0 15,21C15,19 12,15.62 12,15.62Z">
+                </path>
               </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">Garden Journal</h3>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[5].title') }}</h3>
             <p class="text-slate-600">
-              Track your garden's progress, record harvests, and learn from past seasons with the digital garden
-              journal.
+              {{ $t('home.features.list[5].description') }}
             </p>
-          </div> -->
+          </div>
         </div>
       </div>
     </section>
