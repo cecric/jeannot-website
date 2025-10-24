@@ -9,9 +9,9 @@ const toUppercase = (locale: string) => {
 </script>
 
 <template>
-  <div class="font-sans min-h-screen bg-[#f8f5ed] w-full items-center container mx-auto">
+  <div class="font-sans min-h-screen bg-[#f8f5ed] w-full items-center mx-auto">
     <!-- Navigation -->
-    <nav class="mx-auto px-4 py-6 flex justify-between items-center w-full">
+    <nav class="mx-auto px-8 py-6 flex justify-between items-center w-full">
       <div class="flex items-center">
         <img src="/assets/icon-only.png" alt="Jeannot Logo" class="h-12 w-auto" />
         <span class="ml-3 text-2xl font-semibold text-slate-700">Jeannot</span>

@@ -3,8 +3,8 @@
 
 <template>
   <main><!-- Hero Section -->
-    <section class="mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center w-full">
-      <div class="md:w-1/2 mb-10 md:mb-0">
+    <section class="mx-auto px-8 py-12 md:py-20 flex flex-col md:flex-row items-center w-full">
+      <div class="md:w-1/2 mb-10 md:mb-0 px-2">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight mb-6">
           {{ $t('home.title') }}
         </h1>
@@ -48,6 +48,8 @@
               </path>
             </svg>
           </a> -->
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
           <a href="#features"
             class="border border-[#7c8c64] text-[#7c8c64] font-medium py-3 px-6 rounded-md text-center">
             {{ $t('home.learnMore') }}
@@ -62,111 +64,221 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="bg-white py-16 md:py-24">
-      <div class=" mx-auto px-4">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">{{ $t('home.features.title') }}</h2>
-          <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+    <section id="features" class="bg-gradient-to-br from-slate-50 to-white py-16 md:py-24 relative overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute inset-0 opacity-30">
+        <div class="absolute inset-0"
+          style="background-image: radial-gradient(circle at 1px 1px, #7c8c64 1px, transparent 0); background-size: 20px 20px;">
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-20">
+          <div class="inline-block">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6 relative">
+              {{ $t('home.features.title') }}
+              <div
+                class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-[#7c8c64] to-[#9fb06b] rounded-full">
+              </div>
+            </h2>
+          </div>
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             {{ $t('home.features.description') }}
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Feature 1 -->
-          <div class="bg-[#f8f5ed] p-6 rounded-lg">
-            <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-moon">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-              </svg>
+          <div
+            class="group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20 relative overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#7c8c64]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[0].title') }}</h3>
-            <p class="text-slate-600">
-              {{ $t('home.features.list[0].description') }}
-            </p>
+            <div class="relative z-10">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-[#7c8c64] to-[#9fb06b] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-moon">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                </svg>
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#7c8c64] transition-colors duration-300">
+                {{ $t('home.features.list[0].title') }}
+              </h3>
+              <p class="text-slate-600 leading-relaxed mb-6">
+                {{ $t('home.features.list[0].description') }}
+              </p>
+              <div
+                class="aspect-video rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <img :src="`/assets/${$i18n.locale}/screenshots/screenshot-0.jpg`"
+                  :alt="$t('home.features.list[0].title')"
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            </div>
           </div>
 
           <!-- Feature 2 -->
-          <div class="bg-[#f8f5ed] p-6 rounded-lg">
-            <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-calendar">
-                <path d="M8 2v4" />
-                <path d="M16 2v4" />
-                <rect width="18" height="18" x="3" y="4" rx="2" />
-                <path d="M3 10h18" />
-              </svg>
+          <div
+            class="group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20 relative overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#7c8c64]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[1].title') }}</h3>
-            <p class="text-slate-600">
-              {{ $t('home.features.list[1].description') }}
-            </p>
+            <div class="relative z-10">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-[#7c8c64] to-[#9fb06b] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-calendar">
+                  <path d="M8 2v4" />
+                  <path d="M16 2v4" />
+                  <rect width="18" height="18" x="3" y="4" rx="2" />
+                  <path d="M3 10h18" />
+                </svg>
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#7c8c64] transition-colors duration-300">
+                {{ $t('home.features.list[1].title') }}
+              </h3>
+              <p class="text-slate-600 leading-relaxed mb-6">
+                {{ $t('home.features.list[1].description') }}
+              </p>
+              <div
+                class="aspect-video rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <img :src="`/assets/${$i18n.locale}/screenshots/screenshot-1.jpg`"
+                  :alt="$t('home.features.list[1].title')"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            </div>
           </div>
 
           <!-- Feature 3 -->
-          <div class="bg-[#f8f5ed] p-6 rounded-lg">
-            <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-sprout">
-                <path d="M7 20h10" />
-                <path d="M10 20c5.5-2.5.8-6.4 3-10" />
-                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
-                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
-              </svg>
+          <div
+            class="group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20 relative overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#7c8c64]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[2].title') }}</h3>
-            <p class="text-slate-600">
-              {{ $t('home.features.list[2].description') }}
-            </p>
+            <div class="relative z-10">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-[#7c8c64] to-[#9fb06b] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-sprout">
+                  <path d="M7 20h10" />
+                  <path d="M10 20c5.5-2.5.8-6.4 3-10" />
+                  <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
+                  <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
+                </svg>
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#7c8c64] transition-colors duration-300">
+                {{ $t('home.features.list[2].title') }}
+              </h3>
+              <p class="text-slate-600 leading-relaxed mb-6">
+                {{ $t('home.features.list[2].description') }}
+              </p>
+              <div
+                class="aspect-video rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <img :src="`/assets/${$i18n.locale}/screenshots/screenshot-2.jpg`"
+                  :alt="$t('home.features.list[2].title')"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            </div>
           </div>
 
           <!-- Feature 4 -->
-          <div class="bg-[#f8f5ed] p-6 rounded-lg">
-            <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-message-circle">
-                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-              </svg>
+          <div
+            class="group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20 relative overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#7c8c64]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[3].title') }}</h3>
-            <p class="text-slate-600">
-              {{ $t('home.features.list[3].description') }}
-            </p>
+            <div class="relative z-10">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-[#7c8c64] to-[#9fb06b] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-message-circle">
+                  <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                </svg>
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#7c8c64] transition-colors duration-300">
+                {{ $t('home.features.list[3].title') }}
+              </h3>
+              <p class="text-slate-600 leading-relaxed mb-6">
+                {{ $t('home.features.list[3].description') }}
+              </p>
+              <div
+                class="aspect-video rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <img :src="`/assets/${$i18n.locale}/screenshots/screenshot-3.jpg`"
+                  :alt="$t('home.features.list[3].title')"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            </div>
           </div>
 
           <!-- Feature 5 -->
-          <div class="bg-[#f8f5ed] p-6 rounded-lg">
-            <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-bell">
-                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-              </svg>
+          <div
+            class="group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20 relative overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#7c8c64]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[4].title') }}</h3>
-            <p class="text-slate-600">
-              {{ $t('home.features.list[4].description') }}
-            </p>
+            <div class="relative z-10">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-[#7c8c64] to-[#9fb06b] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-bell">
+                  <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                  <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+                </svg>
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#7c8c64] transition-colors duration-300">
+                {{ $t('home.features.list[4].title') }}
+              </h3>
+              <p class="text-slate-600 leading-relaxed mb-6">
+                {{ $t('home.features.list[4].description') }}
+              </p>
+              <div
+                class="aspect-video rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <img :src="`/assets/${$i18n.locale}/screenshots/screenshot-4.jpg`"
+                  :alt="$t('home.features.list[4].title')"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            </div>
           </div>
 
           <!-- Feature 6 -->
-          <div class="bg-[#f8f5ed] p-6 rounded-lg">
-            <div class="w-14 h-14 bg-[#7c8c64] rounded-full flex items-center justify-center mb-4">
-              <svg viewBox="0 0 24 24" height="24" width="24">
-                <path fill="white"
-                  d="M12.75,4.47C15.1,5.5 16.35,8.03 15.92,10.46C17.19,11.56 18,13.19 18,15V15.17C18.31,15.06 18.65,15 19,15A3,3 0 0,1 22,18A3,3 0 0,1 19,21H17C17,21 16,21 16,20C16,19 17,19 17,19H19A1,1 0 0,0 20,18A1,1 0 0,0 19,17H16V15A4,4 0 0,0 12,11A4,4 0 0,0 8,15H6A2,2 0 0,0 4,17A2,2 0 0,0 6,19H7C7,19 8,19 8,20C8,21 7,21 7,21H6A4,4 0 0,1 2,17A4,4 0 0,1 6,13H6.27C5,11.45 4.6,9.24 5.5,7.25C6.72,4.5 9.97,3.24 12.75,4.47M11.93,6.3C10.16,5.5 8.09,6.31 7.31,8.07C6.85,9.09 6.93,10.22 7.41,11.13C8.5,9.83 10.16,9 12,9C12.7,9 13.38,9.12 14,9.34C13.94,8.06 13.18,6.86 11.93,6.3M13.55,2.63C13,2.4 12.45,2.23 11.88,2.12L14.37,0.82L15.27,3.71C14.76,3.29 14.19,2.93 13.55,2.63M6.09,3.44C5.6,3.79 5.17,4.19 4.8,4.63L4.91,1.82L7.87,2.5C7.25,2.71 6.65,3.03 6.09,3.44M18,8.71C17.91,8.12 17.78,7.55 17.59,7L19.97,8.5L17.92,10.73C18.03,10.08 18.05,9.4 18,8.71M3.04,10.3C3.11,10.9 3.25,11.47 3.43,12L1.06,10.5L3.1,8.28C3,8.93 2.97,9.61 3.04,10.3M12,18.91C12.59,19.82 13,20.63 13,21A1,1 0 0,1 12,22A1,1 0 0,1 11,21C11,20.63 11.41,19.82 12,18.91M12,15.62C12,15.62 9,19 9,21A3,3 0 0,0 12,24A3,3 0 0,0 15,21C15,19 12,15.62 12,15.62Z">
-                </path>
-              </svg>
+          <div
+            class="group bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20 relative overflow-hidden">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-[#7c8c64]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
             </div>
-            <h3 class="text-xl font-bold text-slate-800 mb-2">{{ $t('home.features.list[5].title') }}</h3>
-            <p class="text-slate-600">
-              {{ $t('home.features.list[5].description') }}
-            </p>
+            <div class="relative z-10">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-[#7c8c64] to-[#9fb06b] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg viewBox="0 0 24 24" height="28" width="28">
+                  <path fill="white"
+                    d="M12.75,4.47C15.1,5.5 16.35,8.03 15.92,10.46C17.19,11.56 18,13.19 18,15V15.17C18.31,15.06 18.65,15 19,15A3,3 0 0,1 22,18A3,3 0 0,1 19,21H17C17,21 16,21 16,20C16,19 17,19 17,19H19A1,1 0 0,0 20,18A1,1 0 0,0 19,17H16V15A4,4 0 0,0 12,11A4,4 0 0,0 8,15H6A2,2 0 0,0 4,17A2,2 0 0,0 6,19H7C7,19 8,19 8,20C8,21 7,21 7,21H6A4,4 0 0,1 2,17A4,4 0 0,1 6,13H6.27C5,11.45 4.6,9.24 5.5,7.25C6.72,4.5 9.97,3.24 12.75,4.47M11.93,6.3C10.16,5.5 8.09,6.31 7.31,8.07C6.85,9.09 6.93,10.22 7.41,11.13C8.5,9.83 10.16,9 12,9C12.7,9 13.38,9.12 14,9.34C13.94,8.06 13.18,6.86 11.93,6.3M13.55,2.63C13,2.4 12.45,2.23 11.88,2.12L14.37,0.82L15.27,3.71C14.76,3.29 14.19,2.93 13.55,2.63M6.09,3.44C5.6,3.79 5.17,4.19 4.8,4.63L4.91,1.82L7.87,2.5C7.25,2.71 6.65,3.03 6.09,3.44M18,8.71C17.91,8.12 17.78,7.55 17.59,7L19.97,8.5L17.92,10.73C18.03,10.08 18.05,9.4 18,8.71M3.04,10.3C3.11,10.9 3.25,11.47 3.43,12L1.06,10.5L3.1,8.28C3,8.93 2.97,9.61 3.04,10.3M12,18.91C12.59,19.82 13,20.63 13,21A1,1 0 0,1 12,22A1,1 0 0,1 11,21C11,20.63 11.41,19.82 12,18.91M12,15.62C12,15.62 9,19 9,21A3,3 0 0,0 12,24A3,3 0 0,0 15,21C15,19 12,15.62 12,15.62Z">
+                  </path>
+                </svg>
+              </div>
+              <h3
+                class="text-2xl font-bold text-slate-800 mb-4 group-hover:text-[#7c8c64] transition-colors duration-300">
+                {{ $t('home.features.list[5].title') }}
+              </h3>
+              <p class="text-slate-600 leading-relaxed mb-6">
+                {{ $t('home.features.list[5].description') }}
+              </p>
+              <div
+                class="aspect-video rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                <img :src="`/assets/${$i18n.locale}/screenshots/screenshot-5.jpg`"
+                  :alt="$t('home.features.list[5].title')"
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -217,7 +329,7 @@
     </section> -->
 
     <!-- App Screenshots -->
-    <section class="bg-white py-16 md:py-24">
+    <section class="bg-white py-16 md:py-16">
       <div class=" mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">{{ $t('home.seeJeannotInAction.title') }}</h2>
