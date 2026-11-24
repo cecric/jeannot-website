@@ -1,134 +1,286 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref, watch } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { useHead } from '@unhead/vue'
+import { PhAppleLogo, PhDesktop, PhEnvelopeSimple, PhGooglePlayLogo, PhList, PhX } from '@phosphor-icons/vue'
+import { pages } from 'virtual:legal-pages/index'
+import { useLang, useMessages } from '@/i18n'
+import { rememberLang } from '@/lib/locale'
+import {
+  APP_STORE_ID,
+  APP_STORE_URL,
+  COMPANY,
+  COMPANY_URL,
+  LANGS,
+  SITE_NAME,
+  SUPPORT_EMAIL,
+  WEB_APP_LABEL,
+  WEB_APP_URL,
+  localizedPath,
+  playStoreUrl,
+} from '@/lib/site'
 
-const mobileMenuOpen = ref(false);
+const route = useRoute()
+const lang = useLang()
+const m = useMessages()
+const menuOpen = ref(false)
 
-const toUppercase = (locale: string) => locale.toUpperCase();
+const home = computed(() => localizedPath('/', lang.value))
+const legal = computed(() => pages[lang.value])
+const year = new Date().getFullYear()
+
+const sections = computed(() => [
+  { hash: '#features', label: m.value.nav.features },
+  { hash: '#web', label: m.value.nav.web },
+  { hash: '#pricing', label: m.value.nav.pricing },
+])
+
+// The same page in the other languages, for the language switch.
+const languages = computed(() =>
+  LANGS.map((code) => ({
+    code,
+    current: code === lang.value,
+    to: { path: localizedPath(route.path, code), hash: route.hash },
+  })),
+)
+
+watch(
+  () => route.fullPath,
+  () => (menuOpen.value = false),
+)
+
+useHead({
+  // Views give their own title; the name of the site follows unless the title already has it.
+  titleTemplate: (title) =>
+    title === undefined || title === '' || title.includes(SITE_NAME)
+      ? (title ?? SITE_NAME)
+      : `${title} · ${SITE_NAME}`,
+  meta: [
+    // Safari on iPhone and iPad offers the app at the top of the page.
+    { name: 'apple-itunes-app', content: `app-id=${APP_STORE_ID}` },
+  ],
+})
 </script>
 
 <template>
-  <div class="font-sans min-h-screen w-full mx-auto" style="background-color: var(--color-background); color: var(--color-ink);">
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--color-background)]/80 border-b border-[color:var(--color-primary)]/15">
-      <div class="mx-auto px-5 md:px-8 py-4 flex justify-between items-center w-full max-w-7xl">
-        <a href="/" class="flex items-center group">
-          <img src="/assets/icon-only.png" alt="Jeannot Logo" class="h-10 w-auto transition-transform duration-300 ease-fluid group-hover:rotate-[-4deg]" />
-          <span class="ml-3 text-xl md:text-2xl font-semibold font-display tracking-tight" style="color: var(--color-ink);">Jeannot</span>
-        </a>
+  <div class="flex min-h-screen flex-col bg-paper font-sans text-ink">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+    >
+      {{ m.nav.skip }}
+    </a>
 
-        <div class="hidden md:flex items-center space-x-7">
-          <a href="/#whats-new" class="text-sm font-medium hover:text-[color:var(--color-primary)] ease-fluid transition-colors" style="color: var(--color-ink-soft);">{{ $t('nav.whatsNew') }}</a>
-          <a href="/#features" class="text-sm font-medium hover:text-[color:var(--color-primary)] ease-fluid transition-colors" style="color: var(--color-ink-soft);">{{ $t('nav.features') }}</a>
-          <a href="/#identity" class="text-sm font-medium hover:text-[color:var(--color-primary)] ease-fluid transition-colors" style="color: var(--color-ink-soft);">{{ $t('nav.identity') }}</a>
-          <a href="/support" class="text-sm font-medium hover:text-[color:var(--color-primary)] ease-fluid transition-colors" style="color: var(--color-ink-soft);" v-if="$i18n.locale === 'en'">{{ $t('nav.support') }}</a>
-          <a href="/fr/support" class="text-sm font-medium hover:text-[color:var(--color-primary)] ease-fluid transition-colors" style="color: var(--color-ink-soft);" v-if="$i18n.locale === 'fr'">{{ $t('nav.support') }}</a>
+    <header class="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur-md">
+      <div class="page flex items-center gap-4 py-3">
+        <RouterLink :to="home" class="group flex items-center gap-2.5" :aria-label="m.nav.home">
+          <img
+            src="/media/brand/icon.webp"
+            alt=""
+            width="40"
+            height="40"
+            class="size-10 transition-transform duration-300 ease-fluid group-hover:-rotate-6"
+          />
+          <span class="text-2xl font-extrabold tracking-tight">{{ SITE_NAME }}</span>
+        </RouterLink>
 
-          <div class="locale-changer">
-            <select v-model="$i18n.locale" aria-label="Language">
-              <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">
-                {{ toUppercase(locale) }}
-              </option>
-            </select>
+        <nav class="ml-6 hidden items-center gap-6 lg:flex" :aria-label="m.nav.main">
+          <RouterLink
+            v-for="section in sections"
+            :key="section.hash"
+            :to="{ path: home, hash: section.hash }"
+            class="text-[0.95rem] font-bold text-ink-soft transition-colors hover:text-ink"
+          >
+            {{ section.label }}
+          </RouterLink>
+          <RouterLink
+            :to="legal.support.path"
+            class="text-[0.95rem] font-bold text-ink-soft transition-colors hover:text-ink"
+          >
+            {{ m.nav.help }}
+          </RouterLink>
+        </nav>
+
+        <div class="ml-auto flex items-center gap-2 sm:gap-3">
+          <div
+            class="flex items-center rounded-full border border-line bg-card p-0.5 text-xs font-extrabold"
+            role="group"
+            :aria-label="m.nav.language"
+          >
+            <RouterLink
+              v-for="language in languages"
+              :key="language.code"
+              :to="language.to"
+              :hreflang="language.code"
+              :lang="language.code"
+              :aria-current="language.current ? 'true' : undefined"
+              class="rounded-full px-2.5 py-1 uppercase transition-colors"
+              :class="language.current ? 'bg-ink text-paper' : 'text-ink-soft hover:text-ink'"
+              @click="rememberLang(language.code)"
+            >
+              {{ language.code }}
+            </RouterLink>
           </div>
 
-          <a href="/#download" class="inline-flex items-center gap-1.5 text-sm font-semibold py-2 px-4 rounded-full text-white shadow-sm hover:shadow-md transition-all duration-300 ease-snappy hover:-translate-y-0.5"
-             style="background-color: var(--color-primary);">
-            <!-- Phosphor: Download -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>
-            {{ $t('nav.download') }}
+          <a
+            :href="WEB_APP_URL"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline btn-sm hidden md:inline-flex"
+          >
+            <PhDesktop :size="18" weight="bold" aria-hidden="true" />
+            {{ m.nav.openWeb }}
           </a>
-        </div>
+          <RouterLink :to="{ path: home, hash: '#download' }" class="btn btn-ink btn-sm hidden sm:inline-flex">
+            {{ m.nav.getApp }}
+          </RouterLink>
 
-        <div class="md:hidden flex items-center gap-3">
-          <div class="locale-changer">
-            <select v-model="$i18n.locale" aria-label="Language">
-              <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">
-                {{ toUppercase(locale) }}
-              </option>
-            </select>
-          </div>
-          <button @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Menu"
-                  class="p-2 rounded-lg" style="color: var(--color-ink);">
-            <svg v-if="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
-            <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+          <button
+            type="button"
+            class="grid size-10 place-items-center rounded-full border border-line bg-card lg:hidden"
+            :aria-label="menuOpen ? m.nav.close : m.nav.menu"
+            :aria-expanded="menuOpen"
+            aria-controls="mobile-menu"
+            @click="menuOpen = !menuOpen"
+          >
+            <PhX v-if="menuOpen" :size="20" weight="bold" aria-hidden="true" />
+            <PhList v-else :size="20" weight="bold" aria-hidden="true" />
           </button>
         </div>
       </div>
-    </nav>
 
-    <!-- Mobile Menu -->
-    <div v-if="mobileMenuOpen" class="md:hidden px-5 py-4 shadow-lg border-b border-[color:var(--color-primary)]/15" style="background-color: var(--color-background);">
-      <div class="flex flex-col space-y-1">
-        <a href="/#whats-new" class="py-2 text-base font-medium" @click="mobileMenuOpen = false" style="color: var(--color-ink-soft);">{{ $t('nav.whatsNew') }}</a>
-        <a href="/#features" class="py-2 text-base font-medium" @click="mobileMenuOpen = false" style="color: var(--color-ink-soft);">{{ $t('nav.features') }}</a>
-        <a href="/#identity" class="py-2 text-base font-medium" @click="mobileMenuOpen = false" style="color: var(--color-ink-soft);">{{ $t('nav.identity') }}</a>
-        <a v-if="$i18n.locale === 'en'" href="/support" class="py-2 text-base font-medium" @click="mobileMenuOpen = false" style="color: var(--color-ink-soft);">{{ $t('nav.support') }}</a>
-        <a v-if="$i18n.locale === 'fr'" href="/fr/support" class="py-2 text-base font-medium" @click="mobileMenuOpen = false" style="color: var(--color-ink-soft);">{{ $t('nav.support') }}</a>
-        <a href="/#download" class="mt-2 inline-flex items-center justify-center gap-1.5 text-sm font-semibold py-3 px-4 rounded-full text-white" style="background-color: var(--color-primary);" @click="mobileMenuOpen = false">
-          {{ $t('nav.download') }}
-        </a>
-      </div>
-    </div>
-
-    <router-view />
-
-    <!-- Footer -->
-    <footer class="text-white py-14 w-full" style="background-color: #2f3a32;">
-      <div class="max-w-7xl mx-auto px-5 md:px-8">
-        <div class="grid md:grid-cols-4 gap-10">
-          <div class="md:col-span-1">
-            <div class="flex items-center mb-4">
-              <img src="/assets/logo-jeannot.png" alt="Jeannot Logo" class="h-10 w-auto" />
-              <span class="ml-3 text-xl font-semibold font-display">Jeannot</span>
-            </div>
-            <p class="text-sm leading-relaxed" style="color: #c9d1c5;">
-              {{ $t('footer.description') }}
-            </p>
-          </div>
-
-          <div>
-            <h3 class="text-base font-semibold mb-4 font-display">{{ $t('footer.quickLinks') }}</h3>
-            <ul class="space-y-2.5">
-              <li><a href="/#features" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">{{ $t('footer.features') }}</a></li>
-              <li><a href="/#whats-new" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">{{ $t('nav.whatsNew') }}</a></li>
-              <li><a href="/#download" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">{{ $t('footer.download') }}</a></li>
-              <li><a href="/support" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">{{ $t('footer.support') }}</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-base font-semibold mb-4 font-display">{{ $t('footer.legal') }}</h3>
-            <ul class="space-y-2.5">
-              <li><a href="privacy-policies.html" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">{{ $t('footer.privacyPolicies') }}</a></li>
-              <li v-if="$i18n.locale === 'en'"><a href="/support" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">{{ $t('footer.support') }}</a></li>
-              <li v-if="$i18n.locale === 'fr'"><a href="/fr/support" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">{{ $t('footer.support') }} (fr)</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-base font-semibold mb-4 font-display">{{ $t('footer.contact') }}</h3>
-            <ul class="space-y-2.5">
-              <li class="flex items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256" fill="currentColor" class="mr-2 mt-0.5" style="color: #c9d1c5;">
-                  <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-8,16v.91l-88,79.59L40,64.91V64ZM40,192V86.66L122.62,162a8,8,0,0,0,10.76,0L216,86.66V192Z"/>
-                </svg>
-                <a href="mailto:contact@jeannot.app" class="text-sm hover:text-white transition-colors" style="color: #c9d1c5;">contact@jeannot.app</a>
-              </li>
-            </ul>
+      <nav
+        v-show="menuOpen"
+        id="mobile-menu"
+        class="border-t border-line bg-paper lg:hidden"
+        :aria-label="m.nav.main"
+      >
+        <div class="page flex flex-col py-3">
+          <RouterLink
+            v-for="section in sections"
+            :key="section.hash"
+            :to="{ path: home, hash: section.hash }"
+            class="py-2.5 text-lg font-bold"
+          >
+            {{ section.label }}
+          </RouterLink>
+          <RouterLink :to="legal.support.path" class="py-2.5 text-lg font-bold">
+            {{ m.nav.help }}
+          </RouterLink>
+          <div class="mt-3 flex flex-col gap-2 pb-2">
+            <a :href="WEB_APP_URL" target="_blank" rel="noopener" class="btn btn-outline">
+              <PhDesktop :size="20" weight="bold" aria-hidden="true" />
+              {{ m.nav.openWeb }}
+            </a>
+            <RouterLink :to="{ path: home, hash: '#download' }" class="btn btn-ink">
+              {{ m.nav.getApp }}
+            </RouterLink>
           </div>
         </div>
+      </nav>
+    </header>
 
-        <div class="border-t mt-10 pt-6 flex flex-col md:flex-row justify-between items-center" style="border-color: rgba(201, 209, 197, 0.18);">
-          <p class="text-xs" style="color: #a8b0a5;">
-            &copy; {{ new Date().getFullYear() }} Jeannot. Gaiadet SAS — {{ $t('footer.allRightsReserved') }}.
+    <main id="main" class="flex-1 overflow-x-clip">
+      <RouterView />
+    </main>
+
+    <footer class="bg-ink text-paper">
+      <div class="page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
+        <div>
+          <RouterLink :to="home" class="flex items-center gap-2.5" :aria-label="m.nav.home">
+            <span class="grid size-11 place-items-center rounded-2xl bg-paper">
+              <img src="/media/brand/icon.webp" alt="" width="36" height="36" loading="lazy" class="size-9" />
+            </span>
+            <span class="text-2xl font-extrabold tracking-tight">{{ SITE_NAME }}</span>
+          </RouterLink>
+          <p class="mt-4 max-w-sm text-[0.95rem] leading-relaxed text-paper/70">
+            {{ m.footer.tagline }}
           </p>
-          <p class="text-xs mt-2 md:mt-0" style="color: #a8b0a5;">
-            Made with care for gardeners.
+        </div>
+
+        <div>
+          <h2 class="text-sm font-extrabold uppercase tracking-[0.16em] text-paper/60">
+            {{ m.footer.product }}
+          </h2>
+          <ul class="mt-4 space-y-2.5 font-semibold">
+            <li v-for="section in sections" :key="section.hash">
+              <RouterLink :to="{ path: home, hash: section.hash }" class="footer-link">
+                {{ section.label }}
+              </RouterLink>
+            </li>
+            <li>
+              <RouterLink :to="legal.support.path" class="footer-link">{{ legal.support.label }}</RouterLink>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-sm font-extrabold uppercase tracking-[0.16em] text-paper/60">
+            {{ m.footer.legal }}
+          </h2>
+          <ul class="mt-4 space-y-2.5 font-semibold">
+            <li>
+              <RouterLink :to="legal.terms.path" class="footer-link">{{ legal.terms.label }}</RouterLink>
+            </li>
+            <li>
+              <RouterLink :to="legal.privacy.path" class="footer-link">{{ legal.privacy.label }}</RouterLink>
+            </li>
+            <li>
+              <a :href="`mailto:${SUPPORT_EMAIL}`" class="footer-link inline-flex items-center gap-2">
+                <PhEnvelopeSimple :size="18" aria-hidden="true" />
+                {{ SUPPORT_EMAIL }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-sm font-extrabold uppercase tracking-[0.16em] text-paper/60">
+            {{ m.footer.getApp }}
+          </h2>
+          <ul class="mt-4 space-y-2.5 font-semibold">
+            <li>
+              <a :href="WEB_APP_URL" target="_blank" rel="noopener" class="footer-link inline-flex items-center gap-2">
+                <PhDesktop :size="18" aria-hidden="true" />
+                {{ m.nav.web }} · {{ WEB_APP_LABEL }}
+              </a>
+            </li>
+            <li>
+              <a :href="APP_STORE_URL" target="_blank" rel="noopener" class="footer-link inline-flex items-center gap-2">
+                <PhAppleLogo :size="18" weight="fill" aria-hidden="true" />
+                {{ m.cta.appStore }}
+              </a>
+            </li>
+            <li>
+              <a :href="playStoreUrl(lang)" target="_blank" rel="noopener" class="footer-link inline-flex items-center gap-2">
+                <PhGooglePlayLogo :size="18" weight="fill" aria-hidden="true" />
+                {{ m.cta.play }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-paper/15">
+        <div class="page flex flex-col gap-2 py-6 text-sm text-paper/60 md:flex-row md:justify-between">
+          <p>
+            © {{ year }} {{ SITE_NAME }}. {{ m.footer.publishedBy }}
+            <a :href="COMPANY_URL" target="_blank" rel="noopener" class="footer-link underline underline-offset-2">{{ COMPANY }}</a>.
+            {{ m.footer.rights }}
           </p>
+          <p>{{ m.footer.madeWith }}</p>
         </div>
       </div>
     </footer>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.footer-link {
+  color: rgb(248 244 232 / 0.82);
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: #fff;
+}
+</style>

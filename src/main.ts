@@ -1,27 +1,12 @@
+import '@fontsource-variable/nunito'
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import { createHead } from '@unhead/vue/client'
+import { createWebHistory } from 'vue-router'
 
-import App from './App.vue'
-import router from './router'
-import { createI18n } from 'vue-i18n'
-import { en } from './i18n/en'
-import { fr } from './i18n/fr'
+import { createJeannotApp } from './app'
 
-const i18n = createI18n({
-  locale: window.navigator.language && window.navigator.language.startsWith('fr') ? 'fr' : 'en',
-  fallbackLocale: 'en',
-  messages: {
-    en: en,
-    fr: fr,
-  },
-})
+const { app, router } = createJeannotApp(createWebHistory(import.meta.env.BASE_URL), createHead())
 
-const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-app.use(i18n)
-
-app.mount('#app')
+// Every page ships prerendered: keep that HTML on screen until the first view is loaded.
+void router.isReady().then(() => app.mount('#app'))

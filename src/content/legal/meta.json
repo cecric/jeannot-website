@@ -1,0 +1,49 @@
+{
+  "langs": ["en", "fr"],
+  "pages": ["terms", "privacy", "support"],
+  "updated": {
+    "terms": "2026-11-23",
+    "privacy": "2025-05-11",
+    "support": "2026-11-23"
+  },
+  "aliases": {
+    "terms-of-use.html": "terms",
+    "privacy-policies.html": "privacy"
+  },
+  "labels": {
+    "en": {
+      "terms": "Terms of use",
+      "privacy": "Privacy policy",
+      "support": "Help"
+    },
+    "fr": {
+      "terms": "Conditions d'utilisation",
+      "privacy": "Confidentialité",
+      "support": "Aide"
+    }
+  },
+  "ui": {
+    "en": {
+      "index": "Help and legal",
+      "indexIntro": "The terms of use, the privacy policy and the answers to common questions about Jeannot, the garden assistant.",
+      "pages": "Pages",
+      "backToSite": "Back to jeannot.app",
+      "updated": "Last updated:",
+      "languages": "Read in",
+      "chooseLanguage": "Choose a language",
+      "tagline": "Your garden, in tune with the moon.",
+      "rights": "All rights reserved."
+    },
+    "fr": {
+      "index": "Aide et informations légales",
+      "indexIntro": "Les conditions d'utilisation, la politique de confidentialité et les réponses aux questions fréquentes sur Jeannot, l'assistant du jardin.",
+      "pages": "Pages",
+      "backToSite": "Retour à jeannot.app",
+      "updated": "Dernière mise à jour :",
+      "languages": "Lire en",
+      "chooseLanguage": "Choisissez une langue",
+      "tagline": "Votre jardin, au rythme de la Lune.",
+      "rights": "Tous droits réservés."
+    }
+  }
+}

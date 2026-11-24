@@ -6,10 +6,13 @@
     "cypress.config.*",
     "nightwatch.conf.*",
     "playwright.config.*",
-    "eslint.config.*"
+    "eslint.config.*",
+    "scripts/**/*.ts"
   ],
   "compilerOptions": {
     "noEmit": true,
+    // Vite's config loader wants the `.ts` extension on imports between config files.
+    "allowImportingTsExtensions": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 
     "module": "ESNext",

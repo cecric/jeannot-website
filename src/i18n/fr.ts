@@ -1,149 +1,240 @@
-import type { i18nMessages } from './lang';
+import type { Messages } from './lang'
 
-export const fr: i18nMessages = {
+export const fr: Messages = {
+  meta: {
+    title: 'Jeannot – Plan du jardin, calendrier lunaire et assistant de jardinage',
+    description:
+      'Dessinez le plan de votre jardin, jardinez avec la Lune et suivez chaque culture du semis à la récolte. Jeannot, l’assistant du jardin sur iPhone, Android et le web.',
+  },
   nav: {
     features: 'Fonctionnalités',
-    whatsNew: 'À la une',
-    identity: 'Identité',
-    download: 'Télécharger',
-    support: 'Support',
+    web: 'Version web',
+    pricing: 'Gratuit et Premium',
+    help: 'Aide',
+    openWeb: 'Ouvrir la version web',
+    getApp: 'Télécharger',
+    menu: 'Ouvrir le menu',
+    close: 'Fermer le menu',
+    language: 'Langue',
+    home: 'Jeannot, page d’accueil',
+    main: 'Menu principal',
+    skip: 'Aller au contenu',
+  },
+  cta: {
+    appStoreSmall: 'Télécharger dans l’',
+    appStore: 'App Store',
+    playSmall: 'Disponible sur',
+    play: 'Google Play',
+    webSmall: 'Dans votre navigateur',
+    openWeb: 'Ouvrir la version web',
+  },
+  hero: {
+    eyebrow: 'L’assistant du jardin',
+    title: ['Votre jardin, ', 'au rythme de la Lune'],
+    lead: 'Jeannot vous aide à dessiner votre jardin, à choisir le bon jour pour chaque geste et à suivre chaque plante du semis à la récolte, avec un assistant de jardinage toujours à portée de main.',
+    note: 'Gratuit pour commencer. Sur iPhone, iPad, Android et le web, en français et en anglais.',
+    chips: ['Calendrier lunaire', 'Plan du jardin', 'Encyclopédie'],
+    videoLabel:
+      'Visite de l’application Jeannot : aujourd’hui au jardin, le plan du jardin, le calendrier et l’assistant',
+    gardenerAlt: 'Jeannot, un jardinier au chapeau de paille tenant un transplantoir, dessiné en gravure',
+  },
+  highlights: [
+    {
+      title: 'Calendrier lunaire et biodynamique',
+      text: 'Jour racine, feuille, fleur ou fruit : le bon geste chaque matin.',
+    },
+    {
+      title: 'Le plan de votre jardin, à l’échelle',
+      text: 'Carrés, serre, verger : voyez d’un coup d’œil ce qui pousse et où.',
+    },
+    {
+      title: 'Un assistant qui connaît votre jardin',
+      text: 'Posez vos questions, ou identifiez une plante ou une maladie en photo.',
+    },
+    {
+      title: 'Des alertes météo pour vos cultures',
+      text: 'Gel, canicule, vent et fortes pluies, annoncés à temps.',
+    },
+  ],
+  features: {
+    eyebrow: 'Fonctionnalités',
+    title: 'Tout ce qu’il faut au jardin, dans une seule application',
+    plan: {
+      eyebrow: 'Plan du jardin',
+      title: ['Dessinez votre jardin, ', 'carré par carré'],
+      text: 'Mettez tout votre jardin sur un plan, à l’échelle. Tracez son contour sur la vue satellite ou saisissez simplement ses dimensions, puis ajoutez vos carrés, votre serre, vos allées et vos arbres.',
+      points: [
+        'Placez un pied, une ligne ou toute une surface, avec l’espacement affiché à côté de l’espacement conseillé',
+        'Bons voisinages et rotations des cultures, vérifiés carré par carré, avec la raison à chaque fois',
+        'Parcourez les saisons semaine après semaine et préparez la suivante dans un projet',
+      ],
+      chips: ['Vue du ciel', 'Carotte + poireau'],
+      alts: [
+        'Le plan du jardin dans Jeannot : deux carrés potagers dessinés à l’échelle sur une pelouse, avec la frise de la saison',
+        'Un carré du plan du jardin : ses plantes, ses bons voisinages et l’historique de ses rotations',
+      ],
+    },
+    garden: {
+      eyebrow: 'Mon jardin',
+      title: ['Votre potager, ', 'suivi au quotidien'],
+      text: 'Chaque plante, du semis à la récolte, avec ses tâches à venir. Notez ce que vous cultivez, suivez chaque stade et laissez Jeannot vous rappeler les gestes à venir.',
+      points: [
+        'Une frise de progression pour chaque culture, de la prévision à la récolte',
+        'Des tâches proposées pour chaque plante, à planifier ou à cocher',
+        'Recherchez, filtrez et triez vos plantes par stade ou par espèce',
+      ],
+      chips: ['En croissance', 'Du semis à la récolte'],
+      alts: [
+        'Mon jardin dans Jeannot : les tâches à faire et les plantes de la saison',
+        'La fiche d’un noyer dans Jeannot : son stade, son emplacement sur le plan et ses tâches',
+      ],
+    },
+    calendar: {
+      eyebrow: 'Calendrier',
+      title: ['Chaque tâche, ', 'au meilleur jour'],
+      text: 'Lune, jours biodynamiques et météo dans un seul calendrier. Jeannot vous indique les meilleurs moments pour semer, repiquer, tailler ou récolter, pour que vos gestes suivent les cycles naturels.',
+      points: [
+        'Jours racine, feuille, fleur et fruit en un coup d’œil',
+        'Phases de la Lune, lune montante et descendante',
+        'Les prévisions locales et leurs alertes, à côté de vos tâches planifiées',
+      ],
+      chips: ['Jour racine', 'Lune montante'],
+      alts: [
+        'Le calendrier lunaire et biodynamique de Jeannot, avec la phase de la Lune et la météo de chaque jour',
+        'Aujourd’hui au jardin : un jour fruit, le dicton du jour et les tâches prévues',
+      ],
+    },
+    assistant: {
+      eyebrow: 'Assistant',
+      title: ['Un expert jardin ', 'dans votre poche'],
+      text: 'Posez vos questions, Jeannot répond avec votre jardin en tête. De la taille aux ravageurs, obtenez une réponse personnalisée à toute heure, en mots simples.',
+      points: [
+        'Prenez une photo pour identifier une plante en un instant',
+        'Reconnaissez une maladie et recevez des conseils de traitement respectueux de l’environnement',
+        'Photographiez un arbre et faites-vous montrer où tailler',
+      ],
+      chips: ['Prenez une photo', 'Quand semer mes tomates ?'],
+      alts: [
+        'Jeannot identifiant une lavande à partir d’une photo, avec un indice de confiance',
+        'Une conversation avec l’assistant Jeannot sur la période et la façon de semer les tomates',
+      ],
+    },
+    encyclopedia: {
+      eyebrow: 'Encyclopédie',
+      title: ['Semis, entretien, récolte : ', 'tout sur chaque légume'],
+      text: 'Quand, comment, où et avec quoi, mois par mois. Des fiches détaillées pour les légumes, les aromatiques, les fleurs et les fruitiers, pensées pour le potager.',
+      points: [
+        'Un calendrier annuel des semis, des repiquages et des récoltes',
+        'Plantes compagnes, conseils de permaculture et niveau d’entretien',
+        'Ajoutez une plante à votre jardin en un geste',
+      ],
+      chips: ['Ajouter à mon jardin', 'Mois par mois'],
+      alts: [
+        'La fiche de la patate douce dans l’encyclopédie de Jeannot, avec son calendrier annuel',
+        'L’encyclopédie des plantes de Jeannot, triée par plantes racine, feuille, fleur et fruit',
+      ],
+    },
+    journal: {
+      eyebrow: 'Journal et guildes',
+      title: ['Votre carnet de jardin, ', 'saison après saison'],
+      text: 'Récoltes, gestes et guildes de permaculture, tout est noté. Revenez sur ce qui a marché, et commencez la saison suivante en sachant plus que la précédente.',
+      points: [
+        'Notez chaque récolte, avec sa date et sa quantité',
+        'Gardez une trace des arrosages, des paillages et des repiquages',
+        'Composez des guildes autour d’un arbre : fixateur d’azote, couvre-sol, accumulateur dynamique',
+      ],
+      chips: ['Guildes de permaculture', 'Récoltes 2026'],
+      alts: [
+        'Le journal du jardin dans Jeannot : récoltes, arrosages et repiquages, avec leurs notes',
+        'Les guildes de permaculture dans Jeannot : une guilde du pommier avec haricots, fraisier et blette',
+      ],
+    },
+  },
+  web: {
+    badge: 'Nouveau',
+    eyebrow: 'Version web',
+    title: ['Jeannot, désormais ', 'dans votre navigateur'],
+    text: 'Plus à l’aise sur grand écran ? Ouvrez Jeannot sur votre ordinateur et dessinez votre jardin à la souris et au clavier. Rien à installer, et c’est le même compte que sur votre téléphone.',
+    points: [
+      'Votre jardin, vos plantes et vos tâches, synchronisés avec l’application',
+      'Un grand espace pour dessiner et réorganiser votre plan',
+      'L’encyclopédie et le calendrier, en grand',
+    ],
+    cta: 'Ouvrir my.jeannot.app',
+    note: 'Connectez-vous avec votre compte Jeannot. Premium se souscrit dans l’application mobile et s’applique aussi sur le web.',
+    alt: 'Jeannot dans un navigateur : le plan du jardin avec ses carrés potagers, à côté du menu de navigation',
+  },
+  pricing: {
+    eyebrow: 'Gratuit et Premium',
+    title: 'Commencez gratuitement, allez plus loin avec Premium',
+    free: {
+      name: 'Gratuit',
+      text: 'Pour installer votre jardin et jardiner avec la Lune, jour après jour.',
+      items: [
+        'Le dessin du plan de votre jardin, à l’échelle',
+        'La Lune et le jour biodynamique du jour',
+        'Sans publicité',
+      ],
+    },
+    premium: {
+      name: 'Jeannot Premium',
+      text: 'Tout l’assistant, pour toute la saison.',
+      items: [
+        'L’assistant IA, à toute heure',
+        'Le calendrier lunaire et biodynamique complet',
+        'Les tâches planifiées, au meilleur jour',
+        'Les conseils sur votre plan : voisinages et rotations',
+      ],
+    },
+    note: 'Premium est un abonnement à renouvellement automatique, souscrit dans l’application sur iPhone, iPad ou Android. Son prix et ce qu’il comprend sont affichés dans l’application avant que vous vous abonniez.',
+    terms: 'Lire les conditions d’utilisation',
+  },
+  values: {
+    title: 'Pourquoi jardiner avec Jeannot',
+    items: [
+      { title: 'Simple', text: 'Tout ce qu’il vous faut pour la journée, en un coup d’œil.' },
+      { title: 'Naturel', text: 'Zéro produit chimique : cultivez en accord avec la terre.' },
+      {
+        title: 'Sans publicité',
+        text: 'Un endroit clair et serein pour celles et ceux qui aiment leur jardin.',
+      },
+      {
+        title: 'Pour tous les jardins',
+        text: 'Légumes, aromatiques, fleurs ou fruitiers, au jardin comme sur un balcon.',
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'Questions',
+    title: 'Bon à savoir avant de commencer',
+    more: 'Toutes les questions et l’aide',
+  },
+  download: {
+    title: ['Lancez votre première saison ', 'avec Jeannot'],
+    text: 'Dessinez votre jardin, planifiez avec la Lune et recevez des conseils chaque jour.',
   },
   footer: {
-    description:
-      'Jeannot est votre compagnon de jardinage au quotidien : calendrier lunaire, conseils biodynamiques, météo intelligente, encyclopédie des plantes et assistant IA — réunis dans une application calme et inspirée par la nature.',
-    features: 'Fonctionnalités',
-    howItWorks: 'Comment ça marche',
-    testimonials: 'Témoignages',
-    download: 'Télécharger',
-    support: 'Support',
-    privacyPolicies: 'Politique de confidentialité',
-    supportFr: 'Support (fr)',
+    tagline:
+      'Jeannot est l’assistant du jardin : plan du jardin, calendrier lunaire et biodynamique, alertes météo, encyclopédie des plantes et assistant IA, dans une application sereine.',
+    product: 'Jeannot',
+    legal: 'Informations légales',
+    getApp: 'Obtenir Jeannot',
     contact: 'Contact',
-    allRightsReserved: 'Tous droits réservés',
-    quickLinks: 'Liens rapides',
-    legal: 'Mentions légales',
-    termsOfService: 'Conditions d\'utilisation',
-    cookiePolicy: 'Politique des cookies',
+    rights: 'Tous droits réservés.',
+    madeWith: 'Fait avec soin pour les jardiniers.',
+    publishedBy: 'Édité par',
   },
-  home: {
-    tagline: 'Disponible sur iOS et Android',
-    title: 'Jardinez au rythme de la lune.',
-    description:
-      'Un compagnon de jardinage calme et inspiré par la nature : suivez chaque plante, planifiez avec la lune et profitez d’un assistant IA toujours à portée de main.',
-    download: 'Télécharger',
-    learnMore: 'Découvrir les fonctionnalités',
-    heroPills: [
-      'Mon Jardin',
-      'Assistant IA',
-      'Calendrier lunaire',
-      'Météo intelligente',
-      'Encyclopédie',
-      'FR / EN',
-    ],
-    whatsNew: {
-      eyebrow: 'Pensé pour le quotidien',
-      title: 'De petites attentions qui changent chaque journée au jardin.',
-      description:
-        'Du coup d’œil du matin au choix du meilleur jour pour semer — Jeannot s’occupe discrètement des détails pour vous laisser dehors.',
-      items: [
-        {
-          title: 'Le jardin du jour',
-          description:
-            'Ouvrez l’app et retrouvez d’un coup d’œil les tâches, activités et alertes météo du jour — gel, vent et pluie.',
-        },
-        {
-          title: 'Prêt en cinq étapes douces',
-          description:
-            'Créez votre jardin, découvrez la phase lunaire du jour, choisissez une première plante et recevez un mot de Jeannot.',
-        },
-        {
-          title: 'Ajoutez une plante en quelques tapes',
-          description:
-            'Choisissez la variété, indiquez son stade et ajoutez des notes. L’encyclopédie vous indique ce qui est déjà dans votre jardin.',
-        },
-        {
-          title: 'Planifiez avec la lune',
-          description:
-            'Parcourez les activités et planifiez-les directement depuis les jours recommandés du calendrier lunaire — chaque tâche tombe au bon moment.',
-        },
-        {
-          title: 'Un jardin vraiment suivi',
-          description:
-            'Recherchez, filtrez et triez vos plantes par espèce, stade ou date. Édition, suppression et info-bulles sur les fins de stade — sans quitter la liste.',
-        },
-        {
-          title: 'Jeannot, à un tap',
-          description:
-            'Ouvrez l’assistant IA depuis n’importe quel écran, posez vos questions et identifiez plantes et maladies par photo.',
-        },
-      ],
-    },
-    features: {
-      title: 'Tout ce qu’il faut au jardin, dans une seule app.',
-      description:
-        'Suivez chaque plante, planifiez avec la lune et recevez des conseils personnalisés — au même endroit.',
-      list: [
-        {
-          eyebrow: 'Mon Jardin',
-          title: 'Votre jardin, joliment suivi',
-          description:
-            'Un espace dédié à chaque plante : fiches variété avec barre de progression du cycle (semis → récolte), journal du jardin, tâches liées par plante et alertes regroupées.',
-        },
-        {
-          eyebrow: 'Assistant IA',
-          title: 'Un jardinier IA dans la poche',
-          description:
-            'Ouvrez le tiroir Jeannot depuis n’importe quel écran. Un chat contextuel lié à votre jardin, l’identification de plantes et maladies par photo, et l’historique complet des conversations.',
-        },
-        {
-          eyebrow: 'Calendrier lunaire',
-          title: 'Planifier avec la lune',
-          description:
-            'Connaissez les meilleurs jours pour semer, planter, tailler et récolter. Planifiez vos activités directement depuis les jours recommandés du calendrier lunaire / biodynamique.',
-        },
-        {
-          eyebrow: 'Météo',
-          title: 'Une météo que vos plantes comprennent',
-          description:
-            'Alertes gel, vent et pluie intégrées à votre météo du jour et horaire — et un radar de tolérance par espèce (gel, chaleur, soleil, ombre, vent).',
-        },
-        {
-          eyebrow: 'Encyclopédie',
-          title: 'Une encyclopédie riche',
-          description:
-            'Fiches espèces détaillées avec conseils permaculture et semis, calendrier de plantation, et indicateur clair lorsqu’une variété est déjà dans votre jardin.',
-        },
-        {
-          eyebrow: 'Tâches',
-          title: 'Des tâches au rythme de votre semaine',
-          description:
-            'Vue calendrier avec alertes de retard, actions rapides et finalisation enrichie (notes, quantité, date personnalisée). Alertes groupées et étiquetées par jour.',
-        },
-      ],
-    },
-    bilingual: {
-      eyebrow: 'Bilingue',
-      title: 'Disponible en français et en anglais.',
-      description:
-        'Toute l’app — y compris les questions suggérées de Jeannot et l’encyclopédie — est traduite en FR et EN.',
-    },
-    seeJeannotInAction: {
-      title: 'Jeannot en action',
-      description: 'Un aperçu des écrans que vous utiliserez chaque jour.',
-      list: [
-        { title: 'Parler avec Jeannot' },
-        { title: 'Infos du jardin du jour' },
-        { title: 'Planifier les tâches' },
-      ],
-    },
-    downloadSection: {
-      title: 'Lancez votre première saison avec Jeannot.',
-      description:
-        'Planifiez avec la lune, suivez vos récoltes et recevez des conseils personnalisés — le tout dans une seule app.',
-      store: {
-        ios: 'Télécharger sur l’App Store',
-        android: 'Disponible sur Google Play',
-      },
-    },
+  legal: {
+    updated: 'Dernière mise à jour :',
+    plain: 'Version HTML simple',
+    markdown: 'Version Markdown',
+    otherPages: 'Aide et pages légales',
+    contactTitle: 'Encore besoin d’un coup de main ?',
+    contactText: 'Écrivez-nous, nous vous répondons dès que possible.',
   },
-};
+  notFound: {
+    title: 'Rien ne pousse ici',
+    text: 'Cette page n’existe pas, ou elle a été déplacée.',
+    back: 'Retour à l’accueil',
+  },
+}

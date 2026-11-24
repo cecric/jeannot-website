@@ -1,86 +1,312 @@
 @import 'tailwindcss';
 
-/* Satoshi (display) — Fontshare CDN */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap');
+/*
+ * Jeannot on the web: the paper, ink and sage of the app's store compositions, set in Nunito,
+ * with engravings in the margins and words drawn over with a highlighter.
+ */
+@theme {
+  --font-sans:
+    'Nunito Variable', Nunito, ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, 'Segoe UI',
+    Roboto, sans-serif;
 
-:root {
-  /* Jeannot — Earth & plant palette */
-  --color-primary: #7c9082;
-  --color-primary-dark: #647667;
-  --color-primary-soft: #a5b2a3;
-  --color-secondary: #ced4bf;
-  --color-accent: #bfc9bb;
-  --color-surface: #eef0e6;
-  --color-background: #f6f5ee;
-  --color-ink: #2f3a32;
-  --color-ink-soft: #5a6359;
+  --color-paper: #f8f4e8;
+  --color-paper-deep: #f0ebdb;
+  --color-card: #fffdf7;
+  --color-ink: #243128;
+  --color-ink-soft: #5c6a5c;
+  --color-line: #dfdccb;
+
+  --color-sage: #7c9082;
+  --color-sage-ink: #4d6153;
+  --color-sage-light: #dce4dc;
   --color-leaf: #2e7d32;
+  --color-leaf-ink: #2c6a30;
+  --color-leaf-light: #d6e8d4;
   --color-root: #d87943;
-  --color-flower: #c59cff;
+  --color-root-ink: #a14f1f;
+  --color-root-light: #f6e0d0;
   --color-fruit: #a84370;
-  --color-error: #c73e3a;
+  --color-fruit-ink: #8f3560;
+  --color-fruit-light: #f3dbe5;
+  --color-flower: #8e6ad8;
+  --color-flower-ink: #6746b0;
+  --color-flower-light: #e8defa;
+
+  --shadow-soft: 0 1px 2px rgb(36 49 40 / 0.06), 0 8px 24px -6px rgb(36 49 40 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(36 49 40 / 0.08), 0 24px 48px -12px rgb(36 49 40 / 0.28);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sage-ink);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
-body {
-  font-family: 'Satoshi', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--color-background);
-  color: var(--color-ink);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer components {
+  .page {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 48rem) {
+    .page {
+      padding-inline: 2rem;
+    }
+  }
 
-/* Display utility for hero/section headings */
-.font-display {
-  font-family: 'Satoshi', 'Inter', sans-serif;
-  letter-spacing: -0.02em;
-}
+  /* One accent per section, as in the store compositions. */
+  .accent-sage {
+    --accent: var(--color-sage);
+    --accent-ink: var(--color-sage-ink);
+    --accent-light: var(--color-sage-light);
+  }
+  .accent-leaf {
+    --accent: var(--color-leaf);
+    --accent-ink: var(--color-leaf-ink);
+    --accent-light: var(--color-leaf-light);
+  }
+  .accent-root {
+    --accent: var(--color-root);
+    --accent-ink: var(--color-root-ink);
+    --accent-light: var(--color-root-light);
+  }
+  .accent-fruit {
+    --accent: var(--color-fruit);
+    --accent-ink: var(--color-fruit-ink);
+    --accent-light: var(--color-fruit-light);
+  }
+  .accent-flower {
+    --accent: var(--color-flower);
+    --accent-ink: var(--color-flower-ink);
+    --accent-light: var(--color-flower-light);
+  }
 
-/* Gentle ease curves echoing the app's "ease-fluid / ease-snappy" motion tokens */
-.ease-fluid { transition-timing-function: cubic-bezier(0.3, 0, 0, 1); }
-.ease-snappy { transition-timing-function: cubic-bezier(0.2, 0, 0, 1); }
+  /* The highlighter stroke under the last words of a heading. */
+  .hl {
+    font-style: normal;
+    color: var(--accent-ink, var(--color-sage-ink));
+    background-image: linear-gradient(
+      transparent 56%,
+      var(--accent-light, var(--color-sage-light)) 56%,
+      var(--accent-light, var(--color-sage-light)) 94%,
+      transparent 94%
+    );
+    padding-inline: 0.12em;
+    margin-inline: -0.12em;
+    border-radius: 0.2em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
 
-/* Subtle grain / texture overlay used in identity section */
-.bg-grain {
-  background-image:
-    radial-gradient(rgba(124, 144, 130, 0.08) 1px, transparent 1px);
-  background-size: 18px 18px;
-}
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.8rem 0.35rem 0.4rem;
+    border-radius: 999px;
+    background: var(--color-card);
+    border: 1px solid var(--color-line);
+    color: var(--accent-ink, var(--color-sage-ink));
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .eyebrow > .dot {
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    background: var(--accent-light, var(--color-sage-light));
+    color: var(--accent-ink, var(--color-sage-ink));
+  }
 
-/* Sticky mobile download bar — keeps CTA visible at all times on small screens */
-.mobile-cta-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 40;
-  background-color: rgba(246, 245, 238, 0.92);
-  backdrop-filter: saturate(140%) blur(10px);
-  -webkit-backdrop-filter: saturate(140%) blur(10px);
-  border-top: 1px solid rgba(124, 144, 130, 0.18);
-}
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    border-radius: 999px;
+    padding: 0.8rem 1.35rem;
+    font-weight: 800;
+    line-height: 1.1;
+    transition:
+      transform 0.3s var(--ease-fluid),
+      box-shadow 0.3s var(--ease-fluid),
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn-ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-ink:hover {
+    background: #17211a;
+    box-shadow: var(--shadow-lift);
+  }
+  .btn-outline {
+    border: 1.5px solid var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-outline:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .btn-paper {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-paper:hover {
+    background: #fff;
+  }
+  .btn-sm {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+  }
 
-/* Keep content from being hidden under the fixed mobile CTA */
-@media (max-width: 767px) {
-  body { padding-bottom: 84px; }
-}
+  /* The labels floating next to the screens. */
+  .float-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.4rem 0.95rem 0.4rem 0.4rem;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-ink);
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: var(--shadow-lift);
+  }
+  .float-chip > .dot {
+    display: grid;
+    place-items: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 999px;
+    background: var(--accent, var(--color-sage));
+    color: #fff;
+  }
 
-/* Locale dropdown — soft pill look */
-.locale-changer select {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(124, 144, 130, 0.25);
-  color: var(--color-ink);
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.875rem;
-  appearance: none;
-  cursor: pointer;
-  transition: all 200ms cubic-bezier(0.3, 0, 0, 1);
-}
-.locale-changer select:hover {
-  border-color: var(--color-primary);
-  background-color: rgba(255, 255, 255, 0.9);
+  /* Engravings are drawn in black ink: warm them to sit on the paper. */
+  .engraving {
+    filter: sepia(0.35) saturate(0.7);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Text rendered from the Markdown of the help and legal pages. */
+  .prose-legal {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-ink);
+  }
+  .prose-legal h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 2.75rem 0 0.85rem;
+    scroll-margin-top: 6rem;
+  }
+  .prose-legal h3 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 2rem 0 0.5rem;
+    scroll-margin-top: 6rem;
+  }
+  .prose-legal h4 {
+    font-weight: 800;
+    margin: 1.5rem 0 0.4rem;
+  }
+  .prose-legal p {
+    margin: 0.85rem 0;
+  }
+  .prose-legal ul {
+    list-style: disc;
+    padding-left: 1.3rem;
+    margin: 0.85rem 0;
+  }
+  .prose-legal li {
+    margin: 0.4rem 0;
+  }
+  .prose-legal li::marker {
+    color: var(--color-sage);
+  }
+  .prose-legal a {
+    color: var(--color-leaf-ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+  }
+  .prose-legal a:hover {
+    color: var(--color-ink);
+  }
+  .prose-legal strong {
+    font-weight: 800;
+  }
+  .prose-legal hr {
+    border: 0;
+    border-top: 1px solid var(--color-line);
+    margin: 2.25rem 0;
+  }
+  .prose-legal blockquote {
+    margin: 1.25rem 0;
+    padding: 0.75rem 1.1rem;
+    border-left: 3px solid var(--color-sage);
+    background: var(--color-card);
+    border-radius: 0 0.9rem 0.9rem 0;
+  }
+  .prose-legal blockquote p {
+    margin: 0;
+  }
 }

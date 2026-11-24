@@ -1,149 +1,236 @@
-import type { i18nMessages } from './lang';
+import type { Messages } from './lang'
 
-export const en: i18nMessages = {
+export const en: Messages = {
+  meta: {
+    title: 'Jeannot – Garden planner, moon calendar and AI garden assistant',
+    description:
+      'Draw your garden plan, garden by the moon and follow every crop from sowing to harvest. Jeannot is the garden assistant for iPhone, Android and the web.',
+  },
   nav: {
     features: 'Features',
-    whatsNew: 'Highlights',
-    identity: 'Identity',
-    download: 'Download',
-    support: 'Support',
+    web: 'Web version',
+    pricing: 'Free and Premium',
+    help: 'Help',
+    openWeb: 'Open the web app',
+    getApp: 'Get the app',
+    menu: 'Open the menu',
+    close: 'Close the menu',
+    language: 'Language',
+    home: 'Jeannot, home page',
+    main: 'Main menu',
+    skip: 'Skip to the content',
+  },
+  cta: {
+    appStoreSmall: 'Download on the',
+    appStore: 'App Store',
+    playSmall: 'Get it on',
+    play: 'Google Play',
+    webSmall: 'Use it in your browser',
+    openWeb: 'Open the web app',
+  },
+  hero: {
+    eyebrow: 'Garden assistant',
+    title: ['Your garden, ', 'in tune with the moon'],
+    lead: 'Jeannot helps you draw your garden, pick the right day for every task and follow each plant from sowing to harvest, with a gardening assistant always within reach.',
+    note: 'Free to start. On iPhone, iPad, Android and the web, in English and French.',
+    chips: ['Moon calendar', 'Garden map', 'Encyclopedia'],
+    videoLabel: 'A tour of the Jeannot app: today in the garden, the garden plan, the calendar and the assistant',
+    gardenerAlt: 'Jeannot, a gardener in a straw hat holding a trowel, drawn as an engraving',
+  },
+  highlights: [
+    {
+      title: 'Moon and biodynamic calendar',
+      text: 'Root, leaf, flower or fruit day: the right move every morning.',
+    },
+    {
+      title: 'Your garden plan, to scale',
+      text: 'Beds, greenhouse, orchard: see what grows where at a glance.',
+    },
+    {
+      title: 'An assistant that knows your garden',
+      text: 'Ask anything, or identify a plant or a disease from a photo.',
+    },
+    {
+      title: 'Weather alerts for your crops',
+      text: 'Frost, heatwaves, wind and heavy rain, announced in time.',
+    },
+  ],
+  features: {
+    eyebrow: 'Features',
+    title: 'Everything your garden needs, in one calm app',
+    plan: {
+      eyebrow: 'Garden map',
+      title: ['Draw your garden, ', 'bed by bed'],
+      text: 'Put your whole garden on a map, to scale. Trace its outline on a satellite view or simply enter its dimensions, then add your beds, greenhouse, paths and trees.',
+      points: [
+        'Place one plant, a row or a whole area, with the spacing shown next to the recommended one',
+        'Good neighbours and crop rotations, checked bed by bed, with the reason each time',
+        'Step through the seasons week by week and prepare the next one as a draft',
+      ],
+      chips: ['Seen from above', 'Carrot + leek'],
+      alts: [
+        'The garden plan in Jeannot: two vegetable beds drawn to scale on a lawn, with a timeline of the season',
+        'A bed of the garden plan: its plants, good neighbours and crop rotation history',
+      ],
+    },
+    garden: {
+      eyebrow: 'My garden',
+      title: ['Your garden, ', 'tracked day by day'],
+      text: 'Every plant, from sowing to harvest, with what comes next. Log what you grow, follow each stage and let Jeannot remind you of the tasks ahead.',
+      points: [
+        'A progress line for each crop, from planned to harvest',
+        'Tasks suggested for each plant, to plan on a day or tick off',
+        'Search, filter and sort your plants by stage or by species',
+      ],
+      chips: ['Growing', 'From seed to harvest'],
+      alts: [
+        'My garden in Jeannot: the tasks to do and the plants of the season',
+        'The page of a walnut tree in Jeannot: its stage, its location on the plan and its tasks',
+      ],
+    },
+    calendar: {
+      eyebrow: 'Calendar',
+      title: ['Every task, ', 'on its best day'],
+      text: 'Moon, biodynamic days and weather in a single calendar. Jeannot tells you the best times to sow, transplant, prune or harvest, so your work follows the natural cycles.',
+      points: [
+        'Root, leaf, flower and fruit days at a glance',
+        'Moon phases, ascending and descending moon',
+        'The local forecast and its alerts, next to your planned tasks',
+      ],
+      chips: ['Root day', 'Waxing moon'],
+      alts: [
+        'The lunar and biodynamic calendar of Jeannot, with the moon phase and the forecast of each day',
+        'Today in the garden: a fruit day, the saying of the day and the tasks planned',
+      ],
+    },
+    assistant: {
+      eyebrow: 'Assistant',
+      title: ['A garden expert ', 'in your pocket'],
+      text: 'Ask anything, Jeannot answers with your garden in mind. From pruning to pests, get a personal answer at any time of the day, in plain words.',
+      points: [
+        'Take a photo to identify a plant in an instant',
+        'Recognise a disease and get eco-friendly treatment advice',
+        'Photograph a tree and be shown where to prune',
+      ],
+      chips: ['Snap a photo', 'When should I sow tomatoes?'],
+      alts: [
+        'Jeannot identifying a lavender from a photo, with a confidence score',
+        'A conversation with the Jeannot assistant about when and how to sow tomatoes',
+      ],
+    },
+    encyclopedia: {
+      eyebrow: 'Encyclopedia',
+      title: ['Sowing, care, harvest: ', 'everything about each crop'],
+      text: 'When, how, where and with what, month by month. Detailed pages for vegetables, herbs, flowers and fruit trees, written for the kitchen garden.',
+      points: [
+        'A year calendar for sowing, transplanting and harvesting',
+        'Companion plants, permaculture tips and care level',
+        'Add a plant to your garden in one tap',
+      ],
+      chips: ['Add to my garden', 'Month by month'],
+      alts: [
+        'The sweet potato page of the Jeannot encyclopedia, with its year calendar',
+        'The plant encyclopedia of Jeannot, sorted by root, leaf, flower and fruit plants',
+      ],
+    },
+    journal: {
+      eyebrow: 'Journal and guilds',
+      title: ['Your garden notebook, ', 'season after season'],
+      text: 'Harvests, chores and permaculture guilds, all on record. Look back on what worked, and start the next season knowing more than the last.',
+      points: [
+        'Note each harvest, with its date and its quantity',
+        'Keep a trace of watering, mulching and transplanting',
+        'Compose guilds around a tree: nitrogen fixer, ground cover, dynamic accumulator',
+      ],
+      chips: ['Permaculture guilds', 'Harvests 2026'],
+      alts: [
+        'The garden journal in Jeannot: harvests, watering and transplanting, with notes',
+        'Permaculture guilds in Jeannot: an apple tree guild with beans, strawberry and Swiss chard',
+      ],
+    },
+  },
+  web: {
+    badge: 'New',
+    eyebrow: 'Web version',
+    title: ['Jeannot, now ', 'in your browser'],
+    text: 'More comfortable on a big screen? Open Jeannot on your computer and draw your garden with a mouse and a keyboard. Nothing to install, and it is the same account as on your phone.',
+    points: [
+      'Your garden, your plants and your tasks, in sync with the app',
+      'A large canvas to draw and rearrange your plan',
+      'The encyclopedia and the calendar, wide open',
+    ],
+    cta: 'Open my.jeannot.app',
+    note: 'Sign in with your Jeannot account. Premium is subscribed in the mobile app and applies on the web too.',
+    alt: 'Jeannot in a browser: the garden plan with its vegetable beds, next to the navigation menu',
+  },
+  pricing: {
+    eyebrow: 'Free and Premium',
+    title: 'Start for free, go further with Premium',
+    free: {
+      name: 'Free',
+      text: 'To set up your garden and garden by the moon, day after day.',
+      items: [
+        'Draw your garden plan, to scale',
+        'The moon and the biodynamic day of today',
+        'No ads',
+      ],
+    },
+    premium: {
+      name: 'Jeannot Premium',
+      text: 'The whole assistant, for the whole season.',
+      items: [
+        'The AI assistant, at any time',
+        'The full moon and biodynamic calendar',
+        'Planned tasks, on their best day',
+        'Advice on your plan: neighbours and rotations',
+      ],
+    },
+    note: 'Premium is an auto-renewable subscription taken in the app on iPhone, iPad or Android. Its price and what it includes are shown in the app before you subscribe.',
+    terms: 'Read the terms of use',
+  },
+  values: {
+    title: 'Why garden with Jeannot',
+    items: [
+      { title: 'Simple', text: 'Everything you need for the day, at a glance.' },
+      { title: 'Natural', text: 'Zero chemicals: grow in harmony with the earth.' },
+      { title: 'No ads', text: 'A clean, quiet place for people who love their garden.' },
+      {
+        title: 'For every garden',
+        text: 'Vegetables, herbs, flowers or fruit trees, in a backyard or on a balcony.',
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'Questions',
+    title: 'Good to know before you start',
+    more: 'All questions and help',
+  },
+  download: {
+    title: ['Start your first season ', 'with Jeannot'],
+    text: 'Draw your garden, plan by the moon and get advice every day.',
   },
   footer: {
-    description:
-      'Jeannot is your everyday gardening companion: lunar calendar, biodynamic guidance, smart weather, plant encyclopedia and an AI assistant — all in one calm, nature-inspired app.',
-    features: 'Features',
-    howItWorks: 'How It Works',
-    testimonials: 'Testimonials',
-    download: 'Download',
-    support: 'Support',
-    privacyPolicies: 'Privacy Policies',
-    supportFr: 'Support (fr)',
-    contact: 'Contact',
-    allRightsReserved: 'All rights reserved',
-    quickLinks: 'Quick Links',
+    tagline:
+      'Jeannot is the garden assistant: garden plan, lunar and biodynamic calendar, weather alerts, plant encyclopedia and an AI assistant, in one calm app.',
+    product: 'Jeannot',
     legal: 'Legal',
-    termsOfService: 'Terms of Service',
-    cookiePolicy: 'Cookie Policy',
+    getApp: 'Get Jeannot',
+    contact: 'Contact',
+    rights: 'All rights reserved.',
+    madeWith: 'Made with care for gardeners.',
+    publishedBy: 'Published by',
   },
-  home: {
-    tagline: 'Available on iOS & Android',
-    title: 'Grow in rhythm with the moon.',
-    description:
-      'A calm, nature-inspired garden companion: track every plant, plan by the moon and get personalised advice from an AI assistant always within reach.',
-    download: 'Download Now',
-    learnMore: 'Explore the features',
-    heroPills: [
-      'My Garden hub',
-      'Jeannot AI',
-      'Lunar calendar',
-      'Smart weather',
-      'Plant encyclopedia',
-      'FR / EN',
-    ],
-    whatsNew: {
-      eyebrow: 'Made for daily life',
-      title: 'Small touches that make every day in the garden easier.',
-      description:
-        'From your morning glance at the garden to picking the perfect day to sow — Jeannot quietly handles the details so you can stay outside.',
-      items: [
-        {
-          title: 'Today at a glance',
-          description:
-            'Open the app and see today’s tasks, activities and weather alerts — frost, wind and rain — in one calm view.',
-        },
-        {
-          title: 'Set up in five gentle steps',
-          description:
-            'Create your garden, see today’s moon phase, pick a first plant and get a personal welcome from Jeannot.',
-        },
-        {
-          title: 'Add a plant in a flow',
-          description:
-            'Pick a variety, set its current stage and add notes. The encyclopedia tells you what’s already in your garden.',
-        },
-        {
-          title: 'Plan with the moon',
-          description:
-            'Browse activities and schedule them straight from the recommended days of the lunar calendar — every task lands on the right day.',
-        },
-        {
-          title: 'A garden you actually keep track of',
-          description:
-            'Search, filter and sort your plants by species, stage or date. Edit, remove and tooltips for stage end dates — without leaving the list.',
-        },
-        {
-          title: 'Jeannot, one tap away',
-          description:
-            'Open the AI assistant from any screen, ask anything about your garden, and identify plants or diseases from a photo.',
-        },
-      ],
-    },
-    features: {
-      title: 'Everything your garden needs, in one calm app.',
-      description:
-        'Track every plant, plan by the moon and get personalised advice — all in one place.',
-      list: [
-        {
-          eyebrow: 'My Garden',
-          title: 'Your garden, beautifully tracked',
-          description:
-            'A dedicated hub for every plant: variety cards with a lifecycle progress bar (sowing → harvest), a garden journal, linked tasks per plant and grouped alerts.',
-        },
-        {
-          eyebrow: 'Jeannot AI',
-          title: 'An AI gardener in your pocket',
-          description:
-            'Open the Jeannot drawer from any screen. Context-aware chat tied to your garden, plant and disease identification from photos, and full conversation history.',
-        },
-        {
-          eyebrow: 'Lunar calendar',
-          title: 'Plan with the moon',
-          description:
-            'Know the best days to sow, plant, prune and harvest. Schedule activities straight from the recommended days of the lunar / biodynamic calendar.',
-        },
-        {
-          eyebrow: 'Smart weather',
-          title: 'Weather your plants understand',
-          description:
-            'Frost, wind and rain alerts built into your daily and hourly forecast — plus a tolerance radar chart per species (frost, heat, sun, shade, wind).',
-        },
-        {
-          eyebrow: 'Encyclopedia',
-          title: 'A rich plant encyclopedia',
-          description:
-            'Detailed species pages with permaculture and sowing tips, a planting calendar, and a clear indicator when a variety is already in your garden.',
-        },
-        {
-          eyebrow: 'Tasks',
-          title: 'Tasks that fit your week',
-          description:
-            'A calendar view with overdue alerts, quick actions, and rich completion (notes, quantity, custom date). Alerts grouped and labelled by day.',
-        },
-      ],
-    },
-    bilingual: {
-      eyebrow: 'Bilingual',
-      title: 'Fully available in French and English.',
-      description:
-        'The entire app — including Jeannot’s suggested questions and the encyclopedia — is translated in EN and FR.',
-    },
-    seeJeannotInAction: {
-      title: 'See Jeannot in action',
-      description: 'A quick tour of the screens you’ll use every day.',
-      list: [
-        { title: 'Talk with Jeannot' },
-        { title: 'Daily garden info' },
-        { title: 'Schedule garden tasks' },
-      ],
-    },
-    downloadSection: {
-      title: 'Start your first season with Jeannot.',
-      description:
-        'Plan by the moon, track your harvests, and get personalised advice — all in one app.',
-      store: {
-        ios: 'Download on App Store',
-        android: 'Get it on Google Play',
-      },
-    },
+  legal: {
+    updated: 'Last updated:',
+    plain: 'Plain HTML version',
+    markdown: 'Markdown version',
+    otherPages: 'Help and legal pages',
+    contactTitle: 'Still need a hand?',
+    contactText: 'Write to us, we will answer as soon as we can.',
   },
-};
+  notFound: {
+    title: 'Nothing grows here',
+    text: 'This page does not exist, or it has been moved.',
+    back: 'Back to the home page',
+  },
+}
