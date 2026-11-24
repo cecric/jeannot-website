@@ -73,11 +73,11 @@ onBeforeUnmount(() => observer?.disconnect())
 .device {
   position: relative;
   aspect-ratio: 1290 / 2796;
-  padding: 3.4%;
-  border-radius: 17% / 7.9%;
+  padding: 1.5%;
+  border-radius: 15.5% / 7.15%;
   background: linear-gradient(150deg, #585d6d 0%, #3a3f4f 22%, #1b1e28 60%, #30343f 100%);
   box-shadow:
-    inset 0 0 0 1px rgb(255 255 255 / 0.12),
+    inset 0 0 0 1px rgb(255 255 255 / 0.16),
     0 2px 4px rgb(36 49 40 / 0.1),
     0 30px 60px -18px rgb(36 49 40 / 0.45);
 }
@@ -86,7 +86,7 @@ onBeforeUnmount(() => observer?.disconnect())
   position: relative;
   height: 100%;
   overflow: hidden;
-  border-radius: 14.5% / 6.6%;
+  border-radius: 14.4% / 6.55%;
   background: #0b0c10;
   /* Safari clips a video to rounded corners only inside its own compositing layer. */
   transform: translateZ(0);
@@ -103,9 +103,9 @@ onBeforeUnmount(() => observer?.disconnect())
 
 .device-island {
   position: absolute;
-  top: 2.5%;
+  top: 1.75%;
   left: 50%;
-  width: 27%;
+  width: 26%;
   aspect-ratio: 3.4;
   transform: translateX(-50%);
   border-radius: 999px;
